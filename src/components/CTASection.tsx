@@ -75,9 +75,18 @@ export default function CTASection() {
           letterSpacing: '0.005em',
           color:         'var(--cream)',
         }}>
-          RESERVE A PLATAFORMA<br />
-          <span style={{ color: 'var(--orange)' }}>DO SEU CONSULTÓRIO</span>
+          RESERVE O <span style={{ color: 'var(--orange)' }}>AIO</span><br />
+          DO SEU CONSULTÓRIO
         </h2>
+        <span style={{
+          fontFamily:    'var(--font-heading)',
+          fontWeight:    600,
+          fontSize:      11,
+          letterSpacing: '0.32em',
+          textTransform: 'uppercase',
+          color:         'rgba(255,255,255,0.45)',
+          marginTop:     -16,
+        }}>All In One · by Exsinov</span>
 
         <p style={{
           fontFamily: 'var(--font-body)', fontWeight: 400,
@@ -85,7 +94,7 @@ export default function CTASection() {
           color: 'rgba(255,255,255,0.78)',
           maxWidth: 580, lineHeight: 1.7,
         }}>
-          Quem reservar até{' '}
+          Quem reservar o AIO até{' '}
           <strong style={{ color: 'var(--orange)', fontWeight: 600 }}>1º de maio</strong>{' '}
           paga apenas{' '}
           <strong style={{ color: 'var(--cream)', fontWeight: 600 }}>10% do faturamento</strong>{' '}

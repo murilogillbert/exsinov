@@ -34,13 +34,16 @@ export default function Product() {
           alignItems:          'center',
         }} className="product-grid">
           <div>
-            <div className="section-eyebrow">Plataforma</div>
+            <div className="section-eyebrow">A Plataforma · AIO</div>
             <h2 className="section-title" style={{ marginBottom: 20 }}>
-              UMA PLATAFORMA<br />
-              <span className="accent">PARA SEU CONSULTÓRIO</span>
+              CONHEÇA <span className="accent">AIO</span><br />
+              ALL IN ONE
             </h2>
             <p className="section-subtitle" style={{ marginBottom: 32 }}>
-              Software de gestão pensado especificamente para consultórios e clínicas. Vitrine digital, agenda, omnichannel, financeiro e análise contábil — em um único lugar, simples e profissional.
+              <strong style={{ color: 'var(--navy)' }}>AIO</strong> é o software all-in-one
+              da <strong style={{ color: 'var(--navy)' }}>Exsinov</strong> para consultórios
+              e clínicas. Vitrine digital, agenda, omnichannel, financeiro e análise
+              contábil — em um único lugar, simples e profissional.
             </p>
 
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -116,7 +119,7 @@ function DashboardMockup() {
           borderRadius: 6, padding: '4px 12px',
           fontFamily: 'var(--font-body)', fontSize: 11,
           color: 'rgba(255,255,255,0.55)',
-        }}>app.exsinov.com.br/consultorio</div>
+        }}>aio.exsinov.com.br/consultorio</div>
       </div>
 
       <div style={{ display: 'flex', minHeight: 360 }}>

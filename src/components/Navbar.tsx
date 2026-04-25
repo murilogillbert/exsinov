@@ -41,18 +41,39 @@ export default function Navbar() {
           height: 76,
         }}>
           {/* Logo */}
-          <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
             <LogoIcon />
-            <span style={{
-              fontFamily:    'var(--font-heading)',
-              fontWeight:    700,
-              fontSize:      22,
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              color:         'var(--navy)',
-            }}>
-              Ex<span style={{ color: 'var(--orange)' }}>sinov</span>
-            </span>
+            <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1, gap: 3 }}>
+              <span style={{
+                fontFamily:    'var(--font-display)',
+                fontWeight:    400,
+                fontSize:      24,
+                letterSpacing: '0.06em',
+                color:         'var(--navy)',
+              }}>
+                AIO
+                <span style={{
+                  marginLeft: 8,
+                  fontFamily: 'var(--font-heading)',
+                  fontWeight: 600,
+                  fontSize:   10,
+                  letterSpacing: '0.24em',
+                  color:      'var(--orange)',
+                  textTransform: 'uppercase',
+                  verticalAlign: 'middle',
+                }}>All In One</span>
+              </span>
+              <span style={{
+                fontFamily:    'var(--font-heading)',
+                fontWeight:    600,
+                fontSize:      9.5,
+                letterSpacing: '0.28em',
+                textTransform: 'uppercase',
+                color:         'var(--navy-mute)',
+              }}>
+                by <span style={{ color: 'var(--navy)', fontWeight: 700 }}>Exsinov</span>
+              </span>
+            </div>
           </a>
 
           {/* Desktop nav */}

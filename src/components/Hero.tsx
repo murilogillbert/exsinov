@@ -42,9 +42,50 @@ export default function Hero() {
         paddingTop: 32, paddingBottom: 80,
       }} className-data="hero-grid">
         <div className="hero-grid-left">
+          {/* product badge — AIO */}
+          <div style={{
+            display:       'inline-flex',
+            alignItems:    'center',
+            gap:           12,
+            padding:       '8px 14px',
+            background:    'var(--cream)',
+            border:        '1px solid var(--orange-line)',
+            borderRadius:  100,
+            boxShadow:     'var(--shadow-sm)',
+            marginBottom:  20,
+            animation:     'fadeDown 0.7s ease both',
+          }}>
+            <span style={{
+              fontFamily:    'var(--font-display)',
+              fontSize:      18,
+              letterSpacing: '0.06em',
+              color:         'var(--orange)',
+              lineHeight:    1,
+            }}>AIO</span>
+            <span style={{
+              width: 1, height: 14, background: 'var(--beige-edge)',
+            }} />
+            <span style={{
+              fontFamily:    'var(--font-heading)',
+              fontWeight:    600,
+              fontSize:      11.5,
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              color:         'var(--navy-mid)',
+            }}>All In One</span>
+            <span style={{
+              fontFamily:    'var(--font-heading)',
+              fontWeight:    700,
+              fontSize:      10,
+              letterSpacing: '0.24em',
+              textTransform: 'uppercase',
+              color:         'var(--navy-mute)',
+            }}>by Exsinov</span>
+          </div>
+
           {/* eyebrow */}
           <div className="section-eyebrow" style={{ animation: 'fadeDown 0.9s ease both' }}>
-            Plataforma para Consultórios
+            Software para Consultórios
           </div>
 
           {/* headline */}
@@ -84,9 +125,10 @@ export default function Hero() {
             animation:  'fadeUp 1s 0.25s ease both',
             animationFillMode: 'both',
           }}>
-            Vitrine digital, agenda online, omnichannel integrado e análise contábil —
-            todas as ferramentas que <strong style={{ color: 'var(--navy)' }}>consultórios e clínicas</strong> precisam,
-            em uma única plataforma simples e profissional.
+            <strong style={{ color: 'var(--navy)' }}>AIO</strong> é o software{' '}
+            <strong style={{ color: 'var(--navy)' }}>all-in-one</strong> da Exsinov para
+            consultórios e clínicas: vitrine digital, agenda online, omnichannel integrado
+            e análise contábil — em uma única plataforma, simples e profissional.
           </p>
 
           {/* CTAs */}
@@ -167,19 +209,26 @@ function HeroCard() {
       boxShadow: 'var(--shadow-lg)',
       border: '1px solid var(--beige-edge)',
     }}>
-      {/* decorative orange tag in corner */}
+      {/* AIO product chip in corner */}
       <div style={{
         position: 'absolute', top: -14, right: 28,
         background: 'var(--orange)',
         color: 'var(--cream)',
-        fontFamily: 'var(--font-heading)',
-        fontWeight: 700, fontSize: 11,
-        letterSpacing: '0.18em',
-        textTransform: 'uppercase',
-        padding: '7px 14px',
+        fontFamily: 'var(--font-display)',
+        fontSize: 14, letterSpacing: '0.08em',
+        padding: '7px 16px',
         borderRadius: 100,
         boxShadow: '0 6px 16px rgba(232,93,31,0.35)',
-      }}>Hoje</div>
+        display: 'inline-flex', alignItems: 'center', gap: 8,
+      }}>
+        AIO
+        <span style={{
+          fontFamily: 'var(--font-heading)',
+          fontSize: 9.5, fontWeight: 700,
+          letterSpacing: '0.22em', textTransform: 'uppercase',
+          opacity: 0.85,
+        }}>Live</span>
+      </div>
 
       {/* day header */}
       <div style={{

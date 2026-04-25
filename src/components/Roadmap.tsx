@@ -73,13 +73,14 @@ export default function Roadmap() {
 
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div style={{ textAlign: 'center', marginBottom: 64 }}>
-          <div className="section-eyebrow" style={{ justifyContent: 'center' }}>Roadmap</div>
+          <div className="section-eyebrow" style={{ justifyContent: 'center' }}>Roadmap · AIO</div>
           <h2 className="section-title" style={{ marginBottom: 16 }}>
-            O FUTURO DO SEU<br />
-            <span className="accent">CONSULTÓRIO</span>
+            A EVOLUÇÃO DO<br />
+            <span className="accent">AIO</span> NO SEU CONSULTÓRIO
           </h2>
           <p className="section-subtitle" style={{ margin: '0 auto', textAlign: 'center' }}>
-            A cada trimestre, novas camadas de inteligência são liberadas para os consultórios que estão na plataforma.
+            A cada trimestre, novas camadas de inteligência são liberadas no AIO para
+            os consultórios que já estão na plataforma.
           </p>
         </div>
 

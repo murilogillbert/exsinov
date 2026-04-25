@@ -43,13 +43,14 @@ export default function Features() {
 
       <div className="container" style={{ position: 'relative' }}>
         <div style={{ textAlign: 'center', marginBottom: 64 }}>
-          <div className="section-eyebrow" style={{ justifyContent: 'center' }}>Recursos</div>
+          <div className="section-eyebrow" style={{ justifyContent: 'center' }}>Recursos · AIO</div>
           <h2 className="section-title" style={{ marginBottom: 16 }}>
-            TUDO QUE SEU CONSULTÓRIO{' '}
-            <span className="accent">PRECISA</span>
+            TUDO QUE SEU CONSULTÓRIO PRECISA,<br />
+            <span className="accent">EM AIO</span>
           </h2>
           <p className="section-subtitle" style={{ margin: '0 auto', textAlign: 'center' }}>
-            Uma plataforma completa pensada para <strong style={{ color: 'var(--navy)' }}>
+            <strong style={{ color: 'var(--navy)' }}>AIO</strong> é a plataforma all-in-one
+            pensada para <strong style={{ color: 'var(--navy)' }}>
             consultórios médicos, odontológicos, clínicas e profissionais de saúde
             </strong> que querem crescer sem complicação.
           </p>

@@ -4,22 +4,22 @@ const STEPS = [
   {
     num:   '01',
     badge: '240 min',
-    title: 'Implantação do consultório',
-    desc:  'Nossa equipe configura a vitrine, integrações e plataforma do seu consultório. Você não precisa fazer nada técnico — entregamos tudo pronto em 4 horas.',
+    title: 'Implantação do AIO',
+    desc:  'Nossa equipe configura toda a sua plataforma AIO — vitrine, integrações e infraestrutura. Você não precisa fazer nada técnico, entregamos tudo pronto em 4 horas.',
     icon:  <StepIcon1 />,
   },
   {
     num:   '02',
     badge: '60 min',
-    title: 'Configuração das informações',
-    desc:  'Em uma sessão guiada de 1 hora, inserimos seus serviços, especialidades, equipe e preços. Pronto para receber pacientes no mesmo dia.',
+    title: 'Configuração do consultório',
+    desc:  'Em uma sessão guiada de 1 hora, inserimos seus serviços, especialidades, equipe e preços no AIO. Pronto para receber pacientes no mesmo dia.',
     icon:  <StepIcon2 />,
   },
   {
     num:   '03',
     badge: 'Contínuo',
     title: 'Cresça com dados reais',
-    desc:  'Acompanhe relatórios precisos de desempenho e contabilidade do seu consultório. Tome decisões estratégicas e escale com confiança.',
+    desc:  'Acompanhe os relatórios do AIO sobre o desempenho e contabilidade do consultório. Tome decisões estratégicas e escale com confiança.',
     icon:  <StepIcon3 />,
   },
 ]
@@ -36,12 +36,12 @@ export default function HowItWorks() {
         <div style={{ textAlign: 'center', marginBottom: 64 }}>
           <div className="section-eyebrow" style={{ justifyContent: 'center' }}>Como Funciona</div>
           <h2 className="section-title" style={{ marginBottom: 16 }}>
-            SEU CONSULTÓRIO PRONTO<br />
+            AIO PRONTO<br />
             <span className="accent">NO MESMO DIA</span>
           </h2>
           <p className="section-subtitle" style={{ margin: '0 auto', textAlign: 'center' }}>
-            Implantação completa em <strong style={{ color: 'var(--navy)' }}>240 minutos</strong>.
-            Configuração das suas informações em mais{' '}
+            Implantação do AIO em <strong style={{ color: 'var(--navy)' }}>240 minutos</strong>.
+            Configuração das informações do consultório em mais{' '}
             <strong style={{ color: 'var(--navy)' }}>60 minutos</strong>.
             No mesmo dia o consultório está operando.
           </p>

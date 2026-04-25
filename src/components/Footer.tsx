@@ -30,17 +30,38 @@ export default function Footer() {
           gap: 48, marginBottom: 48,
         }} className="footer-grid">
           <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
-            <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
               <LogoIcon />
-              <span style={{
-                fontFamily:    'var(--font-heading)',
-                fontWeight:    700, fontSize: 22,
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                color:         'var(--navy)',
-              }}>
-                Ex<span style={{ color: 'var(--orange)' }}>sinov</span>
-              </span>
+              <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1, gap: 3 }}>
+                <span style={{
+                  fontFamily:    'var(--font-display)',
+                  fontSize:      26,
+                  letterSpacing: '0.06em',
+                  color:         'var(--navy)',
+                }}>
+                  AIO
+                  <span style={{
+                    marginLeft: 8,
+                    fontFamily: 'var(--font-heading)',
+                    fontWeight: 600,
+                    fontSize:   10,
+                    letterSpacing: '0.24em',
+                    color:      'var(--orange)',
+                    textTransform: 'uppercase',
+                    verticalAlign: 'middle',
+                  }}>All In One</span>
+                </span>
+                <span style={{
+                  fontFamily:    'var(--font-heading)',
+                  fontWeight:    600,
+                  fontSize:      10,
+                  letterSpacing: '0.28em',
+                  textTransform: 'uppercase',
+                  color:         'var(--navy-mute)',
+                }}>
+                  by <span style={{ color: 'var(--navy)', fontWeight: 700 }}>Exsinov</span>
+                </span>
+              </div>
             </a>
 
             <p style={{
@@ -48,8 +69,10 @@ export default function Footer() {
               fontSize: 14, color: 'var(--navy-mid)',
               lineHeight: 1.7, maxWidth: 320,
             }}>
-              Software de gestão para <strong style={{ color: 'var(--navy)' }}>
-              consultórios e clínicas</strong>: vitrine digital, agenda online, omnichannel integrado e análise contábil em uma única plataforma.
+              <strong style={{ color: 'var(--navy)' }}>AIO</strong> é o software all-in-one
+              da <strong style={{ color: 'var(--navy)' }}>Exsinov</strong> para
+              consultórios e clínicas: vitrine digital, agenda online, omnichannel
+              integrado e análise contábil — em uma única plataforma.
             </p>
 
             <div style={{ display: 'flex', gap: 10, marginTop: 4 }}>
@@ -123,7 +146,7 @@ export default function Footer() {
             fontFamily: 'var(--font-body)', fontWeight: 400,
             fontSize: 13, color: 'var(--navy-mute)',
           }}>
-            © {new Date().getFullYear()} Exsinov. Software para consultórios e clínicas.
+            © {new Date().getFullYear()} Exsinov · AIO — All In One para consultórios.
           </span>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
