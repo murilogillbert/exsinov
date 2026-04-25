@@ -4,6 +4,7 @@ const links = [
   { label: 'Recursos',       href: '#features'  },
   { label: 'Plataforma',     href: '#product'   },
   { label: 'Como Funciona',  href: '#how'       },
+  { label: 'Roadmap',        href: '#roadmap'   },
 ]
 
 export default function Navbar() {

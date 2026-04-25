@@ -129,12 +129,13 @@ export default function CTASection() {
           maxWidth:   540,
           lineHeight: 1.75,
         }}>
-          Sem mensalidade fixa. Você paga{' '}
-          <strong style={{ color: 'var(--beige)', fontWeight: 500 }}>
-            apenas 10–15% do faturamento
-          </strong>{' '}
-          gerado pela plataforma, conforme o plano.
-          Sem cartão de crédito, sem boleto, sem burocracia.
+          Quem reservar até{' '}
+          <strong style={{ color: 'var(--orange)', fontWeight: 500 }}>1º de maio</strong>{' '}
+          paga apenas{' '}
+          <strong style={{ color: 'var(--beige)', fontWeight: 600 }}>10% do faturamento</strong>{' '}
+          gerado pela plataforma — para sempre.{' '}
+          Após o prazo, o valor sobe para 15%.
+          Sem mensalidade, sem cartão, sem boleto.
         </p>
 
         {/* ── REAL COUNTDOWN ── */}
@@ -209,9 +210,9 @@ export default function CTASection() {
           justifyContent: 'center',
         }}>
           {[
-            'Sem cartão de crédito',
             'Sem mensalidade fixa',
-            '10–15% do faturamento',
+            '10% até 01/05 · 15% depois',
+            'Sem cartão ou boleto',
           ].map(t => (
             <span key={t} style={{
               fontFamily:    'var(--font-heading)',

@@ -203,7 +203,7 @@ export default function Hero() {
           animation: 'fadeUp 1s 0.6s ease both',
           animationFillMode: 'both',
         }}>
-          {['Sem mensalidade fixa', '10–15% do faturamento', '99% uptime'].map(badge => (
+          {['10% até 01/05 · 15% depois', 'Sem mensalidade fixa', '99% uptime'].map(badge => (
             <span key={badge} style={{
               display:    'inline-flex',
               alignItems: 'center',

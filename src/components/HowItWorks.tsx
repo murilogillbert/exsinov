@@ -1,19 +1,22 @@
 const STEPS = [
   {
     num:   '01',
-    title: 'Cadastre-se em 5 minutos',
-    desc:  'Crie sua conta gratuitamente, sem cartão de crédito. Configure sua vitrine digital e personalize a identidade do seu negócio.',
+    title: 'Implantação do site',
+    badge: '240 min',
+    desc:  'Nossa equipe configura e personaliza toda a sua vitrine digital, integrações e plataforma. Você não precisa fazer nada técnico.',
     icon:  <StepIcon1 />,
   },
   {
     num:   '02',
-    title: 'Centralize sua gestão',
-    desc:  'Conecte sua agenda, comunicação e financeiro em uma única plataforma. Importe seus contatos e comece a atender de forma profissional.',
+    title: 'Configuração das informações',
+    badge: '60 min',
+    desc:  'Em uma sessão guiada de 1 hora, inserimos seus dados, serviços, preços e identidade visual. Pronto para atender no mesmo dia.',
     icon:  <StepIcon2 />,
   },
   {
     num:   '03',
     title: 'Cresça com dados reais',
+    badge: 'Contínuo',
     desc:  'Acompanhe relatórios precisos de desempenho e contabilidade. Tome decisões estratégicas e escale seu negócio com confiança.',
     icon:  <StepIcon3 />,
   },
@@ -49,7 +52,11 @@ export default function HowItWorks() {
             <span className="accent">PODEROSO PARA CRESCER</span>
           </h2>
           <p className="section-subtitle" style={{ margin: '0 auto', textAlign: 'center' }}>
-            Em três passos você já tem sua gestão completa funcionando.
+            Implantação completa em{' '}
+            <strong style={{ color: 'var(--beige)' }}>240 minutos</strong>.
+            Configuração das suas informações em mais{' '}
+            <strong style={{ color: 'var(--beige)' }}>60 minutos</strong>.
+            No mesmo dia você já está operando.
           </p>
         </div>
 
@@ -95,7 +102,7 @@ export default function HowItWorks() {
             marginTop: 14,
             fontWeight: 300,
           }}>
-            Sem mensalidade fixa · 10–15% do faturamento · Suporte humano das 8h às 20h
+            10% do faturamento até 01/05 · 15% após o prazo · Suporte humano das 8h às 20h
           </p>
         </div>
       </div>
@@ -113,12 +120,13 @@ export default function HowItWorks() {
 interface StepProps {
   num:   string
   title: string
+  badge: string
   desc:  string
   icon:  React.ReactNode
   delay: number
 }
 
-function StepCard({ num, title, desc, icon, delay }: StepProps) {
+function StepCard({ num, title, badge, desc, icon, delay }: StepProps) {
   return (
     <div style={{
       position:     'relative',
@@ -174,6 +182,24 @@ function StepCard({ num, title, desc, icon, delay }: StepProps) {
         marginTop:    8,
       }}>{icon}</div>
 
+      {/* time badge */}
+      <div style={{
+        display:       'inline-flex',
+        alignItems:    'center',
+        gap:           6,
+        padding:       '5px 14px',
+        background:    'rgba(255,107,26,0.1)',
+        border:        '1px solid rgba(255,107,26,0.25)',
+        borderRadius:  100,
+        fontFamily:    'var(--font-heading)',
+        fontWeight:    700,
+        fontSize:      13,
+        letterSpacing: '0.1em',
+        color:         'var(--orange)',
+      }}>
+        <ClockIcon /> {badge}
+      </div>
+
       <h3 style={{
         fontFamily: 'var(--font-heading)',
         fontWeight: 700,
@@ -219,6 +245,16 @@ function StepIcon3() {
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
       stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+    </svg>
+  )
+}
+
+function ClockIcon() {
+  return (
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <polyline points="12 6 12 12 16 14"/>
     </svg>
   )
 }
