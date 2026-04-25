@@ -1,47 +1,45 @@
 const STATS = [
-  { value: '60%',   label: 'Redução de faltas com lembretes automáticos' },
-  { value: '99%',   label: 'de uptime garantido na plataforma'           },
-  { value: '5 min', label: 'Para configurar e começar a usar'            },
-  { value: '1',     label: 'Plataforma para tudo que seu negócio precisa' },
+  { value: '60%',    label: 'menos faltas com lembretes automáticos via WhatsApp' },
+  { value: '99%',    label: 'de uptime garantido na plataforma'                   },
+  { value: '240min', label: 'de implantação completa do consultório'              },
+  { value: '60min',  label: 'de configuração das suas informações'                },
 ]
 
 export default function Stats() {
   return (
     <section style={{
-      background:  'var(--navy-mid)',
-      borderTop:   'var(--border-subtle)',
-      borderBottom:'var(--border-subtle)',
-      padding:     '48px 0',
+      padding:    '64px 0',
+      background: 'var(--cream)',
+      borderTop:    '1px solid var(--beige-edge)',
+      borderBottom: '1px solid var(--beige-edge)',
     }}>
       <div className="container">
         <div style={{
           display:             'grid',
           gridTemplateColumns: 'repeat(4, 1fr)',
-          gap:                 '1px',
-        }}>
+          gap:                 0,
+        }} className="stats-grid">
           {STATS.map((s, i) => (
             <div key={i} style={{
-              padding:    '28px 32px',
-              borderRight: i < STATS.length - 1 ? 'var(--border-subtle)' : 'none',
-              display:    'flex',
+              padding:     '14px 28px',
+              borderRight: i < STATS.length - 1 ? '1px solid var(--beige-edge)' : 'none',
+              display:     'flex',
               flexDirection: 'column',
               gap:         8,
             }}>
               <span style={{
-                fontFamily:  'var(--font-display)',
-                fontSize:    'clamp(36px, 4vw, 54px)',
-                lineHeight:  1,
-                color:       'var(--orange)',
+                fontFamily:    'var(--font-display)',
+                fontSize:      'clamp(36px, 4vw, 54px)',
+                lineHeight:    1,
+                color:         'var(--orange)',
                 letterSpacing: '0.02em',
-                animation:   'glowPulse 4s ease-in-out infinite',
-                animationDelay: `${i * 0.5}s`,
               }}>{s.value}</span>
               <span style={{
-                fontFamily:  'var(--font-body)',
-                fontWeight:  300,
-                fontSize:    13,
-                color:       'var(--gray)',
-                lineHeight:  1.5,
+                fontFamily: 'var(--font-body)',
+                fontWeight: 400,
+                fontSize:   13,
+                color:      'var(--navy-mid)',
+                lineHeight: 1.5,
               }}>{s.label}</span>
             </div>
           ))}
@@ -50,10 +48,11 @@ export default function Stats() {
 
       <style>{`
         @media (max-width: 900px) {
-          #stats-grid { grid-template-columns: repeat(2,1fr) !important; }
+          .stats-grid { grid-template-columns: repeat(2,1fr) !important; gap: 24px !important; }
+          .stats-grid > div { border-right: none !important; border-bottom: 1px solid var(--beige-edge); }
         }
         @media (max-width: 520px) {
-          #stats-grid { grid-template-columns: 1fr !important; }
+          .stats-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>

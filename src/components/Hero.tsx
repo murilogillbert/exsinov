@@ -1,28 +1,7 @@
-import { useEffect, useRef } from 'react'
-
-const CORNERS: { style: React.CSSProperties }[] = [
-  { style: { top: 0,    left: 0,    borderWidth: '2px 0 0 2px' } },
-  { style: { top: 0,    right: 0,   borderWidth: '2px 2px 0 0' } },
-  { style: { bottom: 0, left: 0,    borderWidth: '0 0 2px 2px' } },
-  { style: { bottom: 0, right: 0,   borderWidth: '0 2px 2px 0' } },
-]
+const WA_LINK =
+  'https://wa.me/5565996042431?text=Ol%C3%A1!%20Quero%20reservar%20a%20plataforma%20Exsinov%20para%20o%20meu%20consult%C3%B3rio.'
 
 export default function Hero() {
-  const scanRef = useRef<HTMLDivElement>(null)
-
-  // re-trigger scanline animation on loop
-  useEffect(() => {
-    const el = scanRef.current
-    if (!el) return
-    const reset = () => {
-      el.style.animation = 'none'
-      void el.offsetHeight
-      el.style.animation = 'scan 5s linear infinite'
-    }
-    el.addEventListener('animationiteration', reset)
-    return () => el.removeEventListener('animationiteration', reset)
-  }, [])
-
   return (
     <section id="hero" style={{
       position:   'relative',
@@ -30,227 +9,280 @@ export default function Hero() {
       display:    'flex',
       alignItems: 'center',
       overflow:   'hidden',
-      background: 'var(--navy)',
+      background: 'var(--beige)',
+      paddingTop: 100,
     }}>
-      {/* ── animated grid ── */}
-      <div style={{
-        position: 'absolute', inset: 0,
-        backgroundImage: `
-          linear-gradient(rgba(255,107,26,0.055) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,107,26,0.055) 1px, transparent 1px)
-        `,
-        backgroundSize: '54px 54px',
-        animation: 'gridShift 22s linear infinite',
-      }} />
-
-      {/* ── radial vignette ── */}
+      {/* ── soft warm background pattern ── */}
       <div style={{
         position: 'absolute', inset: 0,
         background: `
-          radial-gradient(ellipse 70% 60% at 50% 110%, rgba(255,107,26,0.18) 0%, transparent 65%),
-          radial-gradient(ellipse 90% 70% at 50% -10%, rgba(11,25,41,0.95) 0%, transparent 60%)
+          radial-gradient(ellipse 60% 50% at 80% 0%, rgba(232,93,31,0.08), transparent 60%),
+          radial-gradient(ellipse 70% 60% at 0% 100%, rgba(20,39,63,0.06), transparent 65%)
         `,
         pointerEvents: 'none',
       }} />
 
-      {/* ── glow orbs ── */}
+      {/* ── dotted grid (warm, subtle) ── */}
       <div style={{
-        position: 'absolute', bottom: '-60px', left: '-80px',
-        width: 420, height: 420, borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(255,107,26,0.22) 0%, transparent 65%)',
-        filter: 'blur(60px)',
-        animation: 'orbFloat 9s ease-in-out infinite',
+        position: 'absolute', inset: 0,
+        backgroundImage: 'radial-gradient(circle, rgba(20,39,63,0.08) 1px, transparent 1px)',
+        backgroundSize: '24px 24px',
+        opacity: 0.5,
+        maskImage: 'radial-gradient(ellipse 80% 60% at 50% 50%, #000, transparent 75%)',
         pointerEvents: 'none',
       }} />
-      <div style={{
-        position: 'absolute', top: '10%', right: '-100px',
-        width: 300, height: 300, borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(17,34,64,0.9) 0%, transparent 65%)',
-        filter: 'blur(60px)',
-        animation: 'orbFloat 12s 2s ease-in-out infinite',
-        pointerEvents: 'none',
-      }} />
-
-      {/* ── diagonal slash ── */}
-      {[{ right: '12%', opacity: 0.14, width: 3 }, { right: '13.6%', opacity: 0.06, width: 1.5 }].map((s, i) => (
-        <div key={i} style={{
-          position: 'absolute', top: -120, bottom: -120,
-          right: s.right, width: s.width,
-          background: 'linear-gradient(to bottom, transparent, var(--orange) 30%, var(--orange) 70%, transparent)',
-          transform: 'rotate(12deg)',
-          opacity: s.opacity,
-          pointerEvents: 'none',
-        }} />
-      ))}
-
-      {/* ── scanline ── */}
-      <div ref={scanRef} style={{
-        position: 'absolute', left: 0, right: 0, height: 2,
-        background: 'linear-gradient(90deg, transparent, var(--orange), transparent)',
-        animation: 'scan 5s linear infinite',
-        opacity: 0.45,
-        pointerEvents: 'none',
-      }} />
-
-      {/* ── corner marks ── */}
-      {CORNERS.map((c, i) => (
-        <div key={i} style={{
-          position: 'absolute',
-          width: 32, height: 32,
-          borderColor: 'var(--orange)',
-          borderStyle: 'solid',
-          opacity: 0.4,
-          margin: 32,
-          ...c.style,
-        }} />
-      ))}
 
       {/* ── content ── */}
       <div className="container" style={{
         position: 'relative', zIndex: 2,
-        paddingTop: 120, paddingBottom: 100,
-        display: 'flex', flexDirection: 'column', alignItems: 'center',
-      }}>
-        {/* eyebrow */}
-        <div className="section-eyebrow" style={{ animation: 'fadeDown 0.9s ease both' }}>
-          Software de Gestão
-        </div>
+        display: 'grid',
+        gridTemplateColumns: '1.15fr 0.85fr',
+        gap: 64,
+        alignItems: 'center',
+        paddingTop: 32, paddingBottom: 80,
+      }} className-data="hero-grid">
+        <div className="hero-grid-left">
+          {/* eyebrow */}
+          <div className="section-eyebrow" style={{ animation: 'fadeDown 0.9s ease both' }}>
+            Plataforma para Consultórios
+          </div>
 
-        {/* headline */}
-        <h1 style={{
-          fontFamily:  'var(--font-display)',
-          fontSize:    'clamp(52px, 9vw, 110px)',
-          lineHeight:  0.92,
-          letterSpacing: '0.01em',
-          textAlign:   'center',
-          color:       'var(--beige)',
-          maxWidth:    900,
-          animation:   'fadeUp 1s 0.15s ease both',
-          animationFillMode: 'both',
-        }}>
-          GERENCIE SEU<br />
-          NEGÓCIO SEM{' '}
-          <span style={{
-            color: 'var(--orange)',
-            position: 'relative',
-            animation: 'glowPulse 3s ease-in-out infinite',
+          {/* headline */}
+          <h1 style={{
+            fontFamily:    'var(--font-display)',
+            fontSize:      'clamp(46px, 7.5vw, 92px)',
+            lineHeight:    0.95,
+            letterSpacing: '0.005em',
+            color:         'var(--navy)',
+            animation:     'fadeUp 1s 0.1s ease both',
+            animationFillMode: 'both',
           }}>
-            BUROCRACIA
-            <span style={{
-              position: 'absolute',
-              bottom: 6, left: 0, right: 0,
-              height: 6,
-              background: 'var(--orange)',
-              opacity: 0.22,
-              borderRadius: 2,
-            }} />
-          </span>
-        </h1>
+            GERENCIE SEU<br />
+            <span style={{ position: 'relative', display: 'inline-block' }}>
+              <span style={{ color: 'var(--orange)' }}>CONSULTÓRIO</span>
+              <span style={{
+                position: 'absolute',
+                bottom: 4, left: 0, right: 0,
+                height: 6,
+                background: 'var(--orange)',
+                opacity: 0.18,
+                borderRadius: 3,
+              }} />
+            </span><br />
+            SEM BUROCRACIA
+          </h1>
 
-        {/* tagline */}
-        <p style={{
-          fontFamily:  'var(--font-body)',
-          fontWeight:  300,
-          fontSize:    'clamp(15px, 2vw, 19px)',
-          color:       'var(--gray)',
-          textAlign:   'center',
-          maxWidth:    620,
-          marginTop:   28,
-          lineHeight:  1.75,
-          animation:   'fadeUp 1s 0.3s ease both',
-          animationFillMode: 'both',
-        }}>
-          Vitrine digital, agenda online,{' '}
-          <strong style={{ color: 'var(--beige)', fontWeight: 500 }}>omnichannel integrado</strong>{' '}
-          (WhatsApp, Instagram, e-mail) e análise contábil e de desempenho.{' '}
-          <strong style={{ color: 'var(--beige)', fontWeight: 500 }}>
-            Tudo em uma única plataforma.
-          </strong>
-        </p>
+          {/* tagline */}
+          <p style={{
+            fontFamily: 'var(--font-body)',
+            fontWeight: 400,
+            fontSize:   'clamp(15px, 1.6vw, 18px)',
+            color:      'var(--navy-mid)',
+            maxWidth:   540,
+            marginTop:  28,
+            lineHeight: 1.7,
+            animation:  'fadeUp 1s 0.25s ease both',
+            animationFillMode: 'both',
+          }}>
+            Vitrine digital, agenda online, omnichannel integrado e análise contábil —
+            todas as ferramentas que <strong style={{ color: 'var(--navy)' }}>consultórios e clínicas</strong> precisam,
+            em uma única plataforma simples e profissional.
+          </p>
 
-        {/* CTA buttons */}
-        <div style={{
-          display:   'flex',
-          gap:       16,
-          marginTop: 44,
-          flexWrap:  'wrap',
-          justifyContent: 'center',
-          animation: 'fadeUp 1s 0.45s ease both',
-          animationFillMode: 'both',
-        }}>
-          <a
-            href="https://wa.me/5565996042431?text=Ol%C3%A1!%20Quero%20fazer%20minha%20reserva%20na%20Exsinov."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-            style={{ fontSize: 15, gap: 10 }}
-          >
-            <WhatsAppIcon />
-            Faça sua reserva no WhatsApp
-          </a>
-          <a href="#features" className="btn-ghost" style={{ fontSize: 15 }}>
-            Ver Recursos
-          </a>
-        </div>
-
-        {/* trust badges */}
-        <div style={{
-          display:   'flex',
-          gap:       8,
-          marginTop: 32,
-          flexWrap:  'wrap',
-          justifyContent: 'center',
-          animation: 'fadeUp 1s 0.6s ease both',
-          animationFillMode: 'both',
-        }}>
-          {['10% até 01/05 · 15% depois', 'Sem mensalidade fixa', '99% uptime'].map(badge => (
-            <span key={badge} style={{
-              display:    'inline-flex',
-              alignItems: 'center',
-              gap:        6,
-              padding:    '6px 14px',
-              border:     'var(--border-card)',
-              borderRadius: 100,
-              fontFamily:   'var(--font-heading)',
-              fontWeight:   600,
-              fontSize:     12,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              color:    'var(--gray)',
-              background: 'rgba(255,107,26,0.06)',
-            }}>
-              <span style={{ color: 'var(--orange)', fontSize: 14 }}>✓</span>
-              {badge}
-            </span>
-          ))}
-        </div>
-
-        {/* scroll hint */}
-        <div style={{
-          marginTop:  64,
-          display:    'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap:        8,
-          animation:  'fadeUp 1s 0.8s ease both',
-          animationFillMode: 'both',
-        }}>
-          <span style={{
-            fontFamily:    'var(--font-heading)',
-            fontSize:      11,
-            letterSpacing: '0.3em',
-            textTransform: 'uppercase',
-            color:         'var(--gray)',
-            opacity:       0.6,
-          }}>Scroll</span>
+          {/* CTAs */}
           <div style={{
-            width: 1, height: 48,
-            background: 'linear-gradient(to bottom, var(--orange), transparent)',
-            opacity: 0.5,
-          }} />
+            display: 'flex', gap: 14, marginTop: 36, flexWrap: 'wrap',
+            animation: 'fadeUp 1s 0.4s ease both',
+            animationFillMode: 'both',
+          }}>
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              <WhatsAppIcon />
+              Reservar meu Consultório
+            </a>
+            <a href="#features" className="btn-ghost">
+              Ver Recursos
+            </a>
+          </div>
+
+          {/* badges */}
+          <div style={{
+            display: 'flex', gap: 8, marginTop: 32, flexWrap: 'wrap',
+            animation: 'fadeUp 1s 0.55s ease both',
+            animationFillMode: 'both',
+          }}>
+            {[
+              '10% até 01/05 · 15% após',
+              'Sem mensalidade fixa',
+              'Setup em 240 min',
+            ].map(b => (
+              <span key={b} style={{
+                display: 'inline-flex', alignItems: 'center', gap: 6,
+                padding: '7px 14px',
+                background: 'var(--cream)',
+                border: '1px solid var(--beige-edge)',
+                borderRadius: 100,
+                fontFamily: 'var(--font-heading)',
+                fontWeight: 600,
+                fontSize: 12,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                color: 'var(--navy-mid)',
+                boxShadow: 'var(--shadow-sm)',
+              }}>
+                <span style={{ color: 'var(--orange)', fontSize: 14, fontWeight: 700 }}>✓</span>
+                {b}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* RIGHT: visual card */}
+        <div style={{
+          animation: 'fadeUp 1s 0.3s ease both',
+          animationFillMode: 'both',
+        }} className="hero-grid-right">
+          <HeroCard />
         </div>
       </div>
+
+      <style>{`
+        .hero-grid-left, .hero-grid-right {}
+        @media (max-width: 900px) {
+          section#hero > .container { grid-template-columns: 1fr !important; gap: 40px !important; }
+          .hero-grid-right { display: none; }
+        }
+      `}</style>
     </section>
+  )
+}
+
+/* ── Visual card on the right (consultório-themed mockup) ── */
+function HeroCard() {
+  return (
+    <div style={{
+      position: 'relative',
+      background: 'var(--cream)',
+      borderRadius: 'var(--radius-lg)',
+      padding: 28,
+      boxShadow: 'var(--shadow-lg)',
+      border: '1px solid var(--beige-edge)',
+    }}>
+      {/* decorative orange tag in corner */}
+      <div style={{
+        position: 'absolute', top: -14, right: 28,
+        background: 'var(--orange)',
+        color: 'var(--cream)',
+        fontFamily: 'var(--font-heading)',
+        fontWeight: 700, fontSize: 11,
+        letterSpacing: '0.18em',
+        textTransform: 'uppercase',
+        padding: '7px 14px',
+        borderRadius: 100,
+        boxShadow: '0 6px 16px rgba(232,93,31,0.35)',
+      }}>Hoje</div>
+
+      {/* day header */}
+      <div style={{
+        display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+        paddingBottom: 18, borderBottom: '1px solid var(--beige-edge)',
+      }}>
+        <div>
+          <div style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: 32,
+            color: 'var(--navy)',
+            lineHeight: 1,
+          }}>SEX, 01 MAI</div>
+          <div style={{
+            fontFamily: 'var(--font-heading)',
+            fontWeight: 600, fontSize: 11,
+            letterSpacing: '0.2em',
+            color: 'var(--navy-mute)',
+            textTransform: 'uppercase', marginTop: 6,
+          }}>Agenda do consultório</div>
+        </div>
+        <div style={{
+          background: 'var(--orange-soft)',
+          color: 'var(--orange)',
+          fontFamily: 'var(--font-heading)', fontWeight: 700,
+          fontSize: 12, letterSpacing: '0.12em',
+          textTransform: 'uppercase',
+          padding: '5px 11px', borderRadius: 6,
+        }}>8 consultas</div>
+      </div>
+
+      {/* appointments list */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 18 }}>
+        {[
+          { time: '09:00', name: 'Maria Silva',     type: 'Consulta',  active: true  },
+          { time: '10:30', name: 'João Pereira',    type: 'Retorno',   active: false },
+          { time: '13:00', name: 'Ana Costa',       type: 'Avaliação', active: false },
+          { time: '15:30', name: 'Carlos Lima',     type: 'Consulta',  active: false },
+        ].map((a, i) => (
+          <div key={i} style={{
+            display: 'flex', alignItems: 'center', gap: 14,
+            padding: '12px 14px',
+            background: a.active ? 'var(--orange-soft)' : 'var(--beige-soft)',
+            border: a.active ? '1px solid var(--orange-line)' : '1px solid transparent',
+            borderRadius: 'var(--radius-sm)',
+            transition: 'all 0.2s ease',
+          }}>
+            <div style={{
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 700, fontSize: 14,
+              letterSpacing: '0.05em',
+              color: a.active ? 'var(--orange)' : 'var(--navy-soft)',
+              minWidth: 50,
+            }}>{a.time}</div>
+            <div style={{ flex: 1 }}>
+              <div style={{
+                fontFamily: 'var(--font-body)', fontWeight: 600,
+                fontSize: 13.5, color: 'var(--navy)',
+              }}>{a.name}</div>
+              <div style={{
+                fontFamily: 'var(--font-body)', fontWeight: 400,
+                fontSize: 11.5, color: 'var(--navy-mute)',
+              }}>{a.type}</div>
+            </div>
+            {a.active && (
+              <span style={{
+                background: 'var(--orange)', color: 'var(--cream)',
+                fontFamily: 'var(--font-heading)', fontWeight: 700,
+                fontSize: 9, letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                padding: '3px 8px', borderRadius: 4,
+              }}>Em curso</span>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* footer stat */}
+      <div style={{
+        marginTop: 18,
+        padding: '14px 16px',
+        background: 'var(--navy)', borderRadius: 'var(--radius-sm)',
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+      }}>
+        <div>
+          <div style={{
+            fontFamily: 'var(--font-heading)', fontWeight: 600,
+            fontSize: 10.5, letterSpacing: '0.22em',
+            textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)',
+          }}>Faturamento de hoje</div>
+          <div style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: 26, color: 'var(--cream)', lineHeight: 1, marginTop: 4,
+          }}>R$ 2.840,00</div>
+        </div>
+        <div style={{
+          width: 36, height: 36, borderRadius: '50%',
+          background: 'var(--orange)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          color: 'var(--cream)', fontWeight: 700, fontSize: 18,
+        }}>↑</div>
+      </div>
+    </div>
   )
 }
 

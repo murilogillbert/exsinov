@@ -1,26 +1,28 @@
+const WA_LINK = 'https://wa.me/5565996042431?text=Ol%C3%A1!%20Quero%20reservar%20a%20plataforma%20Exsinov%20para%20o%20meu%20consult%C3%B3rio.'
+
 const BULLETS = [
-  { icon: '✦', text: 'Agenda Online Inteligente com lembretes automáticos via WhatsApp' },
-  { icon: '✦', text: 'Prontuário na nuvem — histórico completo, seguro e acessível de qualquer lugar' },
-  { icon: '✦', text: 'Financeiro simples: saiba seu lucro real sem planilhas complexas' },
-  { icon: '✦', text: 'Comunicação centralizada: WhatsApp, Instagram e E-mail em um único painel' },
-  { icon: '✦', text: 'Vitrine digital personalizável para atrair e converter novos clientes' },
+  'Agenda online com lembretes automáticos via WhatsApp',
+  'Prontuário eletrônico na nuvem — seguro e acessível',
+  'Financeiro simplificado: lucro real do consultório em segundos',
+  'Comunicação centralizada com pacientes em todos os canais',
+  'Vitrine digital profissional para atrair novos pacientes',
+  'Pagamentos online via Mercado Pago já integrados',
 ]
 
 export default function Product() {
   return (
     <section id="product" style={{
       padding:    'clamp(80px, 10vw, 130px) 0',
-      background: 'var(--navy-mid)',
-      borderTop:  'var(--border-subtle)',
-      borderBottom: 'var(--border-subtle)',
+      background: 'var(--beige-soft)',
+      borderTop:  '1px solid var(--beige-edge)',
+      borderBottom:'1px solid var(--beige-edge)',
       position:   'relative',
       overflow:   'hidden',
     }}>
-      {/* bg accent */}
       <div style={{
         position: 'absolute', bottom: -200, left: -150,
-        width: 500, height: 500, borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(255,107,26,0.07), transparent 65%)',
+        width: 480, height: 480, borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(20,39,63,0.05), transparent 65%)',
         pointerEvents: 'none',
       }} />
 
@@ -31,52 +33,42 @@ export default function Product() {
           gap:                 80,
           alignItems:          'center',
         }} className="product-grid">
-
-          {/* ── LEFT: text ── */}
           <div>
             <div className="section-eyebrow">Plataforma</div>
             <h2 className="section-title" style={{ marginBottom: 20 }}>
-              UMA PLATAFORMA,<br />
-              <span className="accent">RESULTADO COMPLETO</span>
+              UMA PLATAFORMA<br />
+              <span className="accent">PARA SEU CONSULTÓRIO</span>
             </h2>
-            <p className="section-subtitle" style={{ marginBottom: 36 }}>
-              Software de gestão personalizado que reúne vitrine digital, agenda, omnichannel e análise contábil — tudo em um único lugar, simples e sem burocracia.
+            <p className="section-subtitle" style={{ marginBottom: 32 }}>
+              Software de gestão pensado especificamente para consultórios e clínicas. Vitrine digital, agenda, omnichannel, financeiro e análise contábil — em um único lugar, simples e profissional.
             </p>
 
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 14 }}>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12 }}>
               {BULLETS.map((b, i) => (
                 <li key={i} style={{
-                  display:    'flex',
-                  alignItems: 'flex-start',
-                  gap:        12,
-                  animation:  `fadeUp 0.7s ${i * 0.08}s ease both`,
+                  display: 'flex', alignItems: 'flex-start', gap: 12,
+                  animation: `fadeUp 0.65s ${i * 0.06}s ease both`,
                   animationFillMode: 'both',
                 }}>
                   <span style={{
-                    color:      'var(--orange)',
-                    fontSize:   14,
-                    marginTop:  3,
                     flexShrink: 0,
-                  }}>{b.icon}</span>
+                    width: 22, height: 22, borderRadius: '50%',
+                    background: 'var(--orange)',
+                    color: 'var(--cream)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontSize: 12, fontWeight: 700,
+                    marginTop: 1,
+                  }}>✓</span>
                   <span style={{
-                    fontFamily: 'var(--font-body)',
-                    fontWeight: 400,
-                    fontSize:   15,
-                    color:      'var(--gray-light)',
-                    lineHeight: 1.6,
-                  }}>{b.text}</span>
+                    fontFamily: 'var(--font-body)', fontWeight: 400,
+                    fontSize: 15, color: 'var(--navy-soft)', lineHeight: 1.6,
+                  }}>{b}</span>
                 </li>
               ))}
             </ul>
 
-            <div style={{ marginTop: 44, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-              <a
-                href="https://wa.me/5565996042431?text=Ol%C3%A1!%20Quero%20fazer%20minha%20reserva%20na%20Exsinov."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-                style={{ gap: 10 }}
-              >
+            <div style={{ marginTop: 40, display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary">
                 <WaIcon />
                 Reservar no WhatsApp
               </a>
@@ -84,7 +76,6 @@ export default function Product() {
             </div>
           </div>
 
-          {/* ── RIGHT: dashboard mockup ── */}
           <div style={{ animation: 'fadeUp 0.9s 0.2s ease both', animationFillMode: 'both' }}>
             <DashboardMockup />
           </div>
@@ -103,161 +94,134 @@ export default function Product() {
 function DashboardMockup() {
   return (
     <div style={{
-      position:    'relative',
-      background:  'var(--navy)',
-      border:      '1px solid rgba(255,107,26,0.25)',
-      borderRadius: 16,
-      overflow:    'hidden',
-      boxShadow:   '0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,107,26,0.1)',
+      position: 'relative',
+      background: 'var(--navy)',
+      borderRadius: 'var(--radius-lg)',
+      overflow: 'hidden',
+      boxShadow: 'var(--shadow-lg)',
+      border: '1px solid var(--beige-edge)',
     }}>
       {/* browser chrome */}
       <div style={{
-        background:   '#0d1f33',
-        padding:      '12px 16px',
-        display:      'flex',
-        alignItems:   'center',
-        gap:          8,
-        borderBottom: '1px solid rgba(255,107,26,0.12)',
+        background: 'var(--navy-deep)',
+        padding: '12px 16px',
+        display: 'flex', alignItems: 'center', gap: 8,
       }}>
-        {['#ff5f57','#febc2e','#28c840'].map(c => (
-          <div key={c} style={{ width: 12, height: 12, borderRadius: '50%', background: c }} />
+        {['#FF6B6B','#FFD93D','#6BCF7F'].map(c => (
+          <div key={c} style={{ width: 11, height: 11, borderRadius: '50%', background: c, opacity: 0.85 }} />
         ))}
         <div style={{
-          flex: 1,
-          marginLeft: 8,
-          background: 'rgba(255,255,255,0.05)',
-          borderRadius: 6,
-          padding:    '4px 12px',
-          fontFamily: 'var(--font-body)',
-          fontSize:   11,
-          color:      'var(--gray)',
-        }}>app.exsinov.com.br</div>
+          flex: 1, marginLeft: 8,
+          background: 'rgba(255,255,255,0.06)',
+          borderRadius: 6, padding: '4px 12px',
+          fontFamily: 'var(--font-body)', fontSize: 11,
+          color: 'rgba(255,255,255,0.55)',
+        }}>app.exsinov.com.br/consultorio</div>
       </div>
 
-      {/* sidebar + content */}
-      <div style={{ display: 'flex', height: 340 }}>
+      <div style={{ display: 'flex', minHeight: 360 }}>
         {/* sidebar */}
         <div style={{
-          width:       64,
-          background:  '#0a1828',
-          borderRight: '1px solid rgba(255,107,26,0.08)',
-          display:     'flex',
-          flexDirection: 'column',
-          alignItems:  'center',
-          paddingTop:  20,
-          gap:         20,
+          width: 60, background: 'rgba(0,0,0,0.2)',
+          display: 'flex', flexDirection: 'column',
+          alignItems: 'center', paddingTop: 18, gap: 18,
         }}>
           {[VitrinaM, AgendaM, OmniM, AnalyticsM].map((Icon, i) => (
             <div key={i} style={{
-              width: 36, height: 36,
+              width: 34, height: 34,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               borderRadius: 8,
-              background: i === 0 ? 'rgba(255,107,26,0.18)' : 'transparent',
-              color:      i === 0 ? 'var(--orange)' : 'var(--gray)',
-              cursor: 'default',
-            }}>
-              <Icon />
-            </div>
+              background: i === 1 ? 'var(--orange)' : 'transparent',
+              color:      i === 1 ? 'var(--cream)' : 'rgba(255,255,255,0.4)',
+            }}><Icon /></div>
           ))}
         </div>
 
-        {/* main content */}
-        <div style={{ flex: 1, padding: 20, display: 'flex', flexDirection: 'column', gap: 16 }}>
-          {/* top row: stat cards */}
+        {/* main */}
+        <div style={{ flex: 1, padding: 20, display: 'flex', flexDirection: 'column', gap: 14 }}>
+          {/* stat cards */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 10 }}>
             {[
-              { label: 'Receita', value: 'R$ 18.4k', up: true },
-              { label: 'Consultas', value: '142',    up: true },
-              { label: 'Faltas',   value: '3%',      up: false },
+              { label: 'Receita',   value: 'R$ 18.4k', up: true,  pct: '+12%' },
+              { label: 'Consultas', value: '142',      up: true,  pct: '+8%'  },
+              { label: 'Faltas',    value: '3%',      up: false, pct: '-60%' },
             ].map((s, i) => (
               <div key={i} style={{
-                background:   'rgba(255,255,255,0.04)',
-                border:       '1px solid rgba(255,107,26,0.1)',
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.08)',
                 borderRadius: 8,
-                padding:      '12px 14px',
+                padding: '11px 13px',
               }}>
-                <div style={{ fontSize: 10, color: 'var(--gray)', fontFamily: 'var(--font-body)', marginBottom: 4 }}>{s.label}</div>
-                <div style={{ fontSize: 18, fontFamily: 'var(--font-display)', color: 'var(--beige)', lineHeight: 1 }}>{s.value}</div>
-                <div style={{ fontSize: 10, color: s.up ? '#4ade80' : '#f87171', marginTop: 3, fontFamily: 'var(--font-body)' }}>
-                  {s.up ? '↑' : '↓'} este mês
-                </div>
+                <div style={{
+                  fontFamily: 'var(--font-body)', fontSize: 10,
+                  color: 'rgba(255,255,255,0.5)', marginBottom: 4,
+                  letterSpacing: '0.05em',
+                }}>{s.label}</div>
+                <div style={{
+                  fontFamily: 'var(--font-display)', fontSize: 19,
+                  color: '#fff', lineHeight: 1,
+                }}>{s.value}</div>
+                <div style={{
+                  fontSize: 10,
+                  color: s.up ? '#4ade80' : '#f87171',
+                  fontFamily: 'var(--font-body)', marginTop: 4,
+                }}>{s.up ? '↑' : '↓'} {s.pct} este mês</div>
               </div>
             ))}
           </div>
 
-          {/* chart placeholder */}
+          {/* chart */}
           <div style={{
             flex: 1,
-            background:   'rgba(255,255,255,0.03)',
-            border:       '1px solid rgba(255,107,26,0.08)',
-            borderRadius: 8,
-            padding:      '12px 14px',
-            position:     'relative',
-            overflow:     'hidden',
+            background: 'rgba(255,255,255,0.03)',
+            border: '1px solid rgba(255,255,255,0.06)',
+            borderRadius: 8, padding: '12px 14px',
+            position: 'relative', overflow: 'hidden',
           }}>
-            <div style={{ fontSize: 10, color: 'var(--gray)', fontFamily: 'var(--font-body)', marginBottom: 10 }}>
-              Receita mensal
-            </div>
-            {/* simple bar chart */}
-            <div style={{ display: 'flex', alignItems: 'flex-end', gap: 6, height: 80 }}>
+            <div style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: 10, color: 'rgba(255,255,255,0.5)',
+              marginBottom: 10,
+            }}>Receita mensal — últimos 12 meses</div>
+            <div style={{ display: 'flex', alignItems: 'flex-end', gap: 5, height: 80 }}>
               {[45, 60, 50, 75, 65, 88, 72, 95, 80, 100, 88, 92].map((h, i) => (
                 <div key={i} style={{
                   flex: 1,
-                  height:       `${h}%`,
-                  background:   i === 11
+                  height: `${h}%`,
+                  background: i === 11
                     ? 'var(--orange)'
-                    : `rgba(255,107,26,${0.2 + (h/100)*0.25})`,
+                    : `rgba(232,93,31,${0.18 + (h/100) * 0.32})`,
                   borderRadius: '3px 3px 0 0',
-                  minWidth:     0,
-                  transition:   'height 0.8s ease',
                 }} />
               ))}
             </div>
-            {/* glow under the chart */}
-            <div style={{
-              position: 'absolute', bottom: 0, left: 0, right: 0,
-              height: 24,
-              background: 'linear-gradient(to top, rgba(255,107,26,0.07), transparent)',
-              pointerEvents: 'none',
-            }} />
           </div>
 
-          {/* message row */}
+          {/* message */}
           <div style={{
-            background:   'rgba(255,255,255,0.03)',
-            border:       '1px solid rgba(255,107,26,0.08)',
-            borderRadius: 8,
-            padding:      '10px 14px',
-            display:      'flex',
-            alignItems:   'center',
-            gap:          10,
+            background: 'rgba(255,255,255,0.04)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            borderRadius: 8, padding: '10px 14px',
+            display: 'flex', alignItems: 'center', gap: 10,
           }}>
             <div style={{
               width: 8, height: 8, borderRadius: '50%',
               background: 'var(--orange)',
-              flexShrink: 0,
-              boxShadow: '0 0 6px var(--orange)',
+              boxShadow: '0 0 8px var(--orange)',
             }} />
-            <span style={{ fontFamily: 'var(--font-body)', fontSize: 12, color: 'var(--gray)' }}>
-              3 novas mensagens — WhatsApp, Instagram
-            </span>
+            <span style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: 12,
+              color: 'rgba(255,255,255,0.7)',
+            }}>3 novas mensagens — WhatsApp, Instagram</span>
           </div>
         </div>
       </div>
-
-      {/* orange glow overlay */}
-      <div style={{
-        position: 'absolute', bottom: -60, right: -60,
-        width: 180, height: 180, borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(255,107,26,0.12), transparent 65%)',
-        pointerEvents: 'none',
-      }} />
     </div>
   )
 }
 
-/* mini sidebar icons */
-const micro = { width: 18, height: 18, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: '1.8', strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const }
+const micro = { width: 16, height: 16, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: '1.8', strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const }
 
 function VitrinaM()   { return <svg {...micro}><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> }
 function AgendaM()    { return <svg {...micro}><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> }

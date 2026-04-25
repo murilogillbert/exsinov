@@ -1,10 +1,7 @@
 import { useState, useEffect } from 'react'
 
-// 1 de maio de 2026 às 20h UTC-4 = 2 de maio 00:00 UTC
-const TARGET = new Date('2026-05-02T00:00:00Z')
-
-const WA_LINK =
-  'https://wa.me/5565996042431?text=Ol%C3%A1!%20Quero%20fazer%20minha%20reserva%20na%20Exsinov.'
+const TARGET = new Date('2026-05-02T00:00:00Z') // 1º maio 20h UTC-4
+const WA_LINK = 'https://wa.me/5565996042431?text=Ol%C3%A1!%20Quero%20reservar%20a%20plataforma%20Exsinov%20para%20o%20meu%20consult%C3%B3rio.'
 
 interface TimeLeft { days: number; hours: number; minutes: number; seconds: number }
 
@@ -29,16 +26,8 @@ function useCountdown(target: Date): TimeLeft {
 
 const pad = (n: number) => String(n).padStart(2, '0')
 
-const CORNERS = [
-  { top: 0,    left:  0, borderWidth: '2px 0 0 2px' },
-  { top: 0,    right: 0, borderWidth: '2px 2px 0 0' },
-  { bottom: 0, left:  0, borderWidth: '0 0 2px 2px' },
-  { bottom: 0, right: 0, borderWidth: '0 2px 2px 0' },
-] as const
-
 export default function CTASection() {
   const { days, hours, minutes, seconds } = useCountdown(TARGET)
-
   const units = [
     { val: pad(days),    label: 'dias'     },
     { val: pad(hours),   label: 'horas'    },
@@ -48,114 +37,77 @@ export default function CTASection() {
 
   return (
     <section id="cta" style={{
-      padding:    'clamp(80px, 10vw, 120px) 0',
-      background: 'var(--navy-mid)',
-      borderTop:  'var(--border-subtle)',
+      padding:    'clamp(80px, 10vw, 130px) 0',
+      background: 'var(--navy)',
       position:   'relative',
       overflow:   'hidden',
     }}>
-      {/* background grid */}
+      {/* warm orange radial glow */}
       <div style={{
         position: 'absolute', inset: 0,
-        backgroundImage: `
-          linear-gradient(rgba(255,107,26,0.055) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,107,26,0.055) 1px, transparent 1px)
+        background: `
+          radial-gradient(ellipse 70% 60% at 50% 110%, rgba(232,93,31,0.28), transparent 65%),
+          radial-gradient(ellipse 60% 50% at 0% 0%, rgba(232,93,31,0.08), transparent 60%)
         `,
-        backgroundSize: '54px 54px',
-        animation: 'gridShift 22s linear infinite',
         pointerEvents: 'none',
       }} />
 
-      {/* radial glow */}
+      {/* dotted overlay */}
       <div style={{
         position: 'absolute', inset: 0,
-        background: 'radial-gradient(ellipse 70% 60% at 50% 110%, rgba(255,107,26,0.22), transparent 65%)',
+        backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)',
+        backgroundSize: '24px 24px',
         pointerEvents: 'none',
       }} />
-
-      {/* scanline */}
-      <div style={{
-        position: 'absolute', left: 0, right: 0, height: 2,
-        background: 'linear-gradient(90deg, transparent, var(--orange), transparent)',
-        animation: 'scan 6s linear infinite',
-        opacity: 0.35,
-        pointerEvents: 'none',
-      }} />
-
-      {/* corner marks */}
-      {CORNERS.map((c, i) => (
-        <div key={i} style={{
-          position: 'absolute',
-          width: 28, height: 28,
-          borderColor: 'var(--orange)',
-          borderStyle: 'solid',
-          opacity: 0.4,
-          margin: 32,
-          ...c,
-        }} />
-      ))}
 
       <div className="container" style={{
-        position:      'relative', zIndex: 1,
-        textAlign:     'center',
-        display:       'flex',
-        flexDirection: 'column',
-        alignItems:    'center',
-        gap:           28,
+        position: 'relative', zIndex: 1, textAlign: 'center',
+        display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 26,
       }}>
-        {/* eyebrow */}
         <div className="section-eyebrow" style={{ justifyContent: 'center' }}>
-          Vagas Limitadas
+          Vagas limitadas
         </div>
 
-        {/* headline */}
         <h2 style={{
           fontFamily:    'var(--font-display)',
           fontSize:      'clamp(44px, 7vw, 88px)',
-          lineHeight:    0.92,
-          letterSpacing: '0.01em',
-          color:         'var(--beige)',
-          animation:     'glowPulse 4s ease-in-out infinite',
+          lineHeight:    0.95,
+          letterSpacing: '0.005em',
+          color:         'var(--cream)',
         }}>
-          PREPARE-SE PARA<br />
-          <span style={{ color: 'var(--orange)' }}>UMA NOVA ERA</span>
+          RESERVE A PLATAFORMA<br />
+          <span style={{ color: 'var(--orange)' }}>DO SEU CONSULTÓRIO</span>
         </h2>
 
         <p style={{
-          fontFamily: 'var(--font-body)',
-          fontWeight: 300,
-          fontSize:   'clamp(15px, 2vw, 19px)',
-          color:      'var(--gray)',
-          maxWidth:   540,
-          lineHeight: 1.75,
+          fontFamily: 'var(--font-body)', fontWeight: 400,
+          fontSize: 'clamp(15px, 2vw, 18px)',
+          color: 'rgba(255,255,255,0.78)',
+          maxWidth: 580, lineHeight: 1.7,
         }}>
           Quem reservar até{' '}
-          <strong style={{ color: 'var(--orange)', fontWeight: 500 }}>1º de maio</strong>{' '}
+          <strong style={{ color: 'var(--orange)', fontWeight: 600 }}>1º de maio</strong>{' '}
           paga apenas{' '}
-          <strong style={{ color: 'var(--beige)', fontWeight: 600 }}>10% do faturamento</strong>{' '}
-          gerado pela plataforma — para sempre.{' '}
-          Após o prazo, o valor sobe para 15%.
+          <strong style={{ color: 'var(--cream)', fontWeight: 600 }}>10% do faturamento</strong>{' '}
+          gerado pela plataforma — para sempre. Após o prazo, o valor sobe para 15%.
           Sem mensalidade, sem cartão, sem boleto.
         </p>
 
-        {/* ── REAL COUNTDOWN ── */}
+        {/* COUNTDOWN */}
         <div style={{
-          display:      'flex',
-          gap:          0,
-          marginTop:    12,
-          border:       'var(--border-subtle)',
-          borderRadius: 10,
-          overflow:     'hidden',
-          background:   'rgba(255,107,26,0.05)',
-          animation:    'countPulse 3s ease-in-out infinite',
+          display: 'flex', gap: 0, marginTop: 8,
+          border: '1px solid rgba(232,93,31,0.35)',
+          borderRadius: 12, overflow: 'hidden',
+          background: 'rgba(0,0,0,0.25)',
+          backdropFilter: 'blur(8px)',
         }}>
           {units.map((item, i) => (
             <div key={item.label} style={{ display: 'flex', alignItems: 'center' }}>
               <div style={{
-                padding:     'clamp(14px,2vw,20px) clamp(18px,3vw,32px)',
-                textAlign:   'center',
-                borderRight: i < units.length - 1 ? '1px solid rgba(255,107,26,0.15)' : 'none',
-                minWidth:    'clamp(64px, 9vw, 96px)',
+                padding: 'clamp(14px,2vw,20px) clamp(18px,3vw,32px)',
+                textAlign: 'center',
+                borderRight: i < units.length - 1 ? '1px solid rgba(232,93,31,0.2)' : 'none',
+                minWidth: 'clamp(64px, 9vw, 96px)',
               }}>
                 <div style={{
                   fontFamily:    'var(--font-display)',
@@ -163,67 +115,37 @@ export default function CTASection() {
                   lineHeight:    1,
                   color:         'var(--orange)',
                   letterSpacing: '0.04em',
-                  textShadow:    '0 0 30px rgba(255,107,26,0.5)',
-                  transition:    'all 0.3s ease',
+                  textShadow:    '0 0 30px rgba(232,93,31,0.55)',
                 }}>{item.val}</div>
                 <div style={{
-                  fontFamily:    'var(--font-heading)',
-                  fontWeight:    600,
-                  fontSize:      10,
-                  letterSpacing: '0.28em',
+                  fontFamily: 'var(--font-heading)', fontWeight: 600,
+                  fontSize: 10, letterSpacing: '0.28em',
                   textTransform: 'uppercase',
-                  color:         'var(--gray)',
-                  marginTop:     4,
+                  color: 'rgba(255,255,255,0.5)',
+                  marginTop: 4,
                 }}>{item.label}</div>
               </div>
-              {i < units.length - 1 && (
-                <div style={{
-                  fontFamily:   'var(--font-display)',
-                  fontSize:     36,
-                  color:        'rgba(255,107,26,0.2)',
-                  padding:      '0 2px',
-                  marginBottom: 16,
-                }}>:</div>
-              )}
             </div>
           ))}
         </div>
 
-        {/* ── WHATSAPP CTA ── */}
-        <a
-          href={WA_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-primary"
-          style={{ fontSize: 16, padding: '20px 48px', marginTop: 8, gap: 12 }}
-        >
+        <a href={WA_LINK} target="_blank" rel="noopener noreferrer"
+           className="btn-primary"
+           style={{ fontSize: 16, padding: '20px 48px', marginTop: 8, gap: 12 }}>
           <WhatsAppIcon />
-          Faça sua reserva no WhatsApp
+          Reservar meu Consultório
         </a>
 
-        {/* trust badges */}
         <div style={{
-          display:        'flex',
-          gap:            28,
-          marginTop:      4,
-          flexWrap:       'wrap',
-          justifyContent: 'center',
+          display: 'flex', gap: 28, marginTop: 4, flexWrap: 'wrap', justifyContent: 'center',
         }}>
-          {[
-            'Sem mensalidade fixa',
-            '10% até 01/05 · 15% depois',
-            'Sem cartão ou boleto',
-          ].map(t => (
+          {['Sem mensalidade fixa', '10% até 01/05 · 15% após', 'Sem cartão ou boleto'].map(t => (
             <span key={t} style={{
-              fontFamily:    'var(--font-heading)',
-              fontWeight:    600,
-              fontSize:      12,
-              letterSpacing: '0.1em',
+              fontFamily: 'var(--font-heading)', fontWeight: 600,
+              fontSize: 12, letterSpacing: '0.1em',
               textTransform: 'uppercase',
-              color:         'var(--gray)',
-              display:       'flex',
-              alignItems:    'center',
-              gap:           7,
+              color: 'rgba(255,255,255,0.65)',
+              display: 'flex', alignItems: 'center', gap: 7,
             }}>
               <span style={{ color: 'var(--orange)', fontSize: 15 }}>✓</span>
               {t}
@@ -231,15 +153,12 @@ export default function CTASection() {
           ))}
         </div>
 
-        {/* deadline note */}
         <p style={{
-          fontFamily: 'var(--font-body)',
-          fontSize:   13,
-          color:      'var(--gray)',
-          opacity:    0.6,
-          fontWeight: 300,
+          fontFamily: 'var(--font-body)', fontSize: 13,
+          color: 'rgba(255,255,255,0.45)', fontWeight: 400, marginTop: 4,
         }}>
-          Reservas encerram em <strong style={{ color: 'var(--orange)', fontWeight: 500, opacity: 1 }}>
+          Reservas encerram em{' '}
+          <strong style={{ color: 'var(--orange)', fontWeight: 500 }}>
             1º de maio às 20h
           </strong>
         </p>

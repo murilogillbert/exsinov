@@ -1,23 +1,22 @@
 import { useState, useEffect } from 'react'
 
 const links = [
-  { label: 'Recursos',       href: '#features'  },
-  { label: 'Plataforma',     href: '#product'   },
-  { label: 'Como Funciona',  href: '#how'       },
-  { label: 'Roadmap',        href: '#roadmap'   },
+  { label: 'Recursos',      href: '#features' },
+  { label: 'Plataforma',    href: '#product'  },
+  { label: 'Como Funciona', href: '#how'      },
+  { label: 'Roadmap',       href: '#roadmap'  },
 ]
 
 export default function Navbar() {
-  const [scrolled,  setScrolled]  = useState(false)
-  const [menuOpen,  setMenuOpen]  = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60)
+    const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -29,31 +28,28 @@ export default function Navbar() {
     <>
       <nav style={{
         position:   'fixed',
-        top:        0,
-        left:       0,
-        right:      0,
+        top:        0, left: 0, right: 0,
         zIndex:     100,
-        transition: 'background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease',
-        background:  scrolled ? 'rgba(11,25,41,0.92)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(16px)' : 'none',
-        borderBottom:   scrolled ? '1px solid rgba(255,107,26,0.15)' : '1px solid transparent',
+        transition: 'background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease',
+        background:    scrolled ? 'rgba(245,236,220,0.92)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(14px)' : 'none',
+        borderBottom:   scrolled ? '1px solid var(--beige-edge)' : '1px solid transparent',
+        boxShadow:      scrolled ? 'var(--shadow-sm)' : 'none',
       }}>
         <div className="container" style={{
-          display:        'flex',
-          alignItems:     'center',
-          justifyContent: 'space-between',
-          height:         72,
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          height: 76,
         }}>
           {/* Logo */}
           <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <LogoIcon />
             <span style={{
-              fontFamily:  'var(--font-heading)',
-              fontWeight:  700,
-              fontSize:    22,
+              fontFamily:    'var(--font-heading)',
+              fontWeight:    700,
+              fontSize:      22,
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
-              color: 'var(--beige)',
+              color:         'var(--navy)',
             }}>
               Ex<span style={{ color: 'var(--orange)' }}>sinov</span>
             </span>
@@ -61,30 +57,27 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <ul style={{
-            display:    'flex',
-            alignItems: 'center',
-            gap:        36,
-            listStyle:  'none',
+            display: 'flex', alignItems: 'center', gap: 36, listStyle: 'none',
           }} className="desktop-nav">
             {links.map(l => (
               <li key={l.href}>
                 <a href={l.href} style={{
                   fontFamily:    'var(--font-heading)',
                   fontWeight:    600,
-                  fontSize:      15,
+                  fontSize:      14,
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase',
-                  color:         'var(--gray-light)',
+                  color:         'var(--navy-mid)',
                   transition:    'color 0.2s ease',
                 }}
                 onMouseEnter={e => (e.currentTarget.style.color = 'var(--orange)')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'var(--gray-light)')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'var(--navy-mid)')}
                 >{l.label}</a>
               </li>
             ))}
             <li>
-              <a href="#cta" className="btn-primary" style={{ padding: '11px 26px', fontSize: 14 }}>
-                Começar Grátis
+              <a href="#cta" className="btn-primary" style={{ padding: '11px 24px', fontSize: 13 }}>
+                Reservar
               </a>
             </li>
           </ul>
@@ -94,50 +87,36 @@ export default function Navbar() {
             onClick={() => setMenuOpen(o => !o)}
             aria-label="Abrir menu"
             style={{
-              display:        'none',
-              flexDirection:  'column',
-              gap:            5,
-              padding:        8,
-              background:     'transparent',
-              border:         'none',
-              cursor:         'pointer',
+              display: 'none', flexDirection: 'column', gap: 5,
+              padding: 8, background: 'transparent', cursor: 'pointer',
             }}
             className="hamburger"
           >
             {[0,1,2].map(i => (
               <span key={i} style={{
-                display:    'block',
-                width:      24,
-                height:     2,
-                background: 'var(--beige)',
-                borderRadius: 2,
+                display: 'block', width: 24, height: 2,
+                background: 'var(--navy)', borderRadius: 2,
                 transition: 'transform 0.3s ease, opacity 0.3s ease',
-                transform:  menuOpen
+                transform: menuOpen
                   ? i === 0 ? 'translateY(7px) rotate(45deg)'
                   : i === 2 ? 'translateY(-7px) rotate(-45deg)'
-                  : 'scaleX(0)'
-                  : 'none',
+                  : 'scaleX(0)' : 'none',
                 opacity: menuOpen && i === 1 ? 0 : 1,
               }} />
             ))}
           </button>
         </div>
 
-        {/* Mobile nav drawer */}
+        {/* Mobile drawer */}
         <div style={{
-          position:   'fixed',
-          inset:      0,
-          top:        72,
-          background: 'rgba(11,25,41,0.98)',
+          position: 'fixed', inset: 0, top: 76,
+          background: 'rgba(245,236,220,0.98)',
           backdropFilter: 'blur(20px)',
-          display:    'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: 32,
+          display: 'flex', flexDirection: 'column',
+          alignItems: 'center', justifyContent: 'center', gap: 28,
           transition: 'opacity 0.3s ease, transform 0.3s ease',
-          opacity:    menuOpen ? 1 : 0,
-          transform:  menuOpen ? 'translateY(0)' : 'translateY(-16px)',
+          opacity: menuOpen ? 1 : 0,
+          transform: menuOpen ? 'translateY(0)' : 'translateY(-12px)',
           pointerEvents: menuOpen ? 'all' : 'none',
           zIndex: 99,
         }}>
@@ -145,21 +124,16 @@ export default function Navbar() {
             <a key={l.href} href={l.href} onClick={close} style={{
               fontFamily:    'var(--font-display)',
               fontSize:      36,
-              letterSpacing: '0.08em',
-              color:         'var(--beige)',
-              transition:    'color 0.2s ease',
-            }}
-            onMouseEnter={e => (e.currentTarget.style.color = 'var(--orange)')}
-            onMouseLeave={e => (e.currentTarget.style.color = 'var(--beige)')}
-            >{l.label}</a>
+              letterSpacing: '0.05em',
+              color:         'var(--navy)',
+            }}>{l.label}</a>
           ))}
-          <a href="#cta" onClick={close} className="btn-primary" style={{ marginTop: 12, padding: '16px 48px', fontSize: 16 }}>
-            Começar Grátis — 7 Dias
+          <a href="#cta" onClick={close} className="btn-primary" style={{ marginTop: 12 }}>
+            Reservar Agora
           </a>
         </div>
       </nav>
 
-      {/* responsive CSS injection */}
       <style>{`
         @media (max-width: 768px) {
           .desktop-nav { display: none !important; }
@@ -172,10 +146,10 @@ export default function Navbar() {
 
 function LogoIcon() {
   return (
-    <svg width="30" height="30" viewBox="0 0 40 40" fill="none">
+    <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
       <path d="M20 4L36 12V28L20 36L4 28V12L20 4Z"
         stroke="var(--orange)" strokeWidth="2"
-        fill="rgba(255,107,26,0.12)" />
+        fill="rgba(232,93,31,0.1)" />
       <path d="M13 20H27M20 13L27 20L20 27"
         stroke="var(--orange)" strokeWidth="2.2"
         strokeLinecap="round" strokeLinejoin="round" />

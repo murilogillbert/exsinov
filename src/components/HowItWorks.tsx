@@ -1,23 +1,25 @@
+const WA_LINK = 'https://wa.me/5565996042431?text=Ol%C3%A1!%20Quero%20reservar%20a%20plataforma%20Exsinov%20para%20o%20meu%20consult%C3%B3rio.'
+
 const STEPS = [
   {
     num:   '01',
-    title: 'Implantação do site',
     badge: '240 min',
-    desc:  'Nossa equipe configura e personaliza toda a sua vitrine digital, integrações e plataforma. Você não precisa fazer nada técnico.',
+    title: 'Implantação do consultório',
+    desc:  'Nossa equipe configura a vitrine, integrações e plataforma do seu consultório. Você não precisa fazer nada técnico — entregamos tudo pronto em 4 horas.',
     icon:  <StepIcon1 />,
   },
   {
     num:   '02',
-    title: 'Configuração das informações',
     badge: '60 min',
-    desc:  'Em uma sessão guiada de 1 hora, inserimos seus dados, serviços, preços e identidade visual. Pronto para atender no mesmo dia.',
+    title: 'Configuração das informações',
+    desc:  'Em uma sessão guiada de 1 hora, inserimos seus serviços, especialidades, equipe e preços. Pronto para receber pacientes no mesmo dia.',
     icon:  <StepIcon2 />,
   },
   {
     num:   '03',
-    title: 'Cresça com dados reais',
     badge: 'Contínuo',
-    desc:  'Acompanhe relatórios precisos de desempenho e contabilidade. Tome decisões estratégicas e escale seu negócio com confiança.',
+    title: 'Cresça com dados reais',
+    desc:  'Acompanhe relatórios precisos de desempenho e contabilidade do seu consultório. Tome decisões estratégicas e escale com confiança.',
     icon:  <StepIcon3 />,
   },
 ]
@@ -26,81 +28,50 @@ export default function HowItWorks() {
   return (
     <section id="how" style={{
       padding:    'clamp(80px, 10vw, 130px) 0',
-      background: 'var(--navy)',
+      background: 'var(--beige)',
       position:   'relative',
       overflow:   'hidden',
     }}>
-      {/* grid bg */}
-      <div style={{
-        position: 'absolute', inset: 0,
-        backgroundImage: `
-          linear-gradient(rgba(255,107,26,0.03) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,107,26,0.03) 1px, transparent 1px)
-        `,
-        backgroundSize: '54px 54px',
-        pointerEvents: 'none',
-      }} />
-
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-        {/* header */}
-        <div style={{ textAlign: 'center', marginBottom: 72 }}>
-          <div className="section-eyebrow" style={{ justifyContent: 'center' }}>
-            Como Funciona
-          </div>
+        <div style={{ textAlign: 'center', marginBottom: 64 }}>
+          <div className="section-eyebrow" style={{ justifyContent: 'center' }}>Como Funciona</div>
           <h2 className="section-title" style={{ marginBottom: 16 }}>
-            SIMPLES DE COMEÇAR,<br />
-            <span className="accent">PODEROSO PARA CRESCER</span>
+            SEU CONSULTÓRIO PRONTO<br />
+            <span className="accent">NO MESMO DIA</span>
           </h2>
           <p className="section-subtitle" style={{ margin: '0 auto', textAlign: 'center' }}>
-            Implantação completa em{' '}
-            <strong style={{ color: 'var(--beige)' }}>240 minutos</strong>.
+            Implantação completa em <strong style={{ color: 'var(--navy)' }}>240 minutos</strong>.
             Configuração das suas informações em mais{' '}
-            <strong style={{ color: 'var(--beige)' }}>60 minutos</strong>.
-            No mesmo dia você já está operando.
+            <strong style={{ color: 'var(--navy)' }}>60 minutos</strong>.
+            No mesmo dia o consultório está operando.
           </p>
         </div>
 
-        {/* steps */}
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 32,
+          display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 28,
           position: 'relative',
         }} className="steps-grid">
-          {/* connector line */}
+          {/* connector */}
           <div style={{
             position: 'absolute',
-            top: 44,
-            left: '16.6%',
-            right: '16.6%',
-            height: 1,
-            background: 'linear-gradient(90deg, transparent, rgba(255,107,26,0.3), rgba(255,107,26,0.3), transparent)',
+            top: 44, left: '16.6%', right: '16.6%',
+            height: 2,
+            background: 'linear-gradient(90deg, var(--orange), rgba(232,93,31,0.15) 50%, rgba(232,93,31,0.08))',
             zIndex: 0,
           }} className="connector-line" />
 
-          {STEPS.map((s, i) => (
-            <StepCard key={i} {...s} delay={i * 0.15} />
-          ))}
+          {STEPS.map((s, i) => <StepCard key={i} {...s} delay={i * 0.12} />)}
         </div>
 
-        {/* bottom CTA nudge */}
-        <div style={{ textAlign: 'center', marginTop: 72 }}>
-          <a
-            href="https://wa.me/5565996042431?text=Ol%C3%A1!%20Quero%20fazer%20minha%20reserva%20na%20Exsinov."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-            style={{ fontSize: 16, padding: '18px 48px', gap: 12 }}
-          >
+        <div style={{ textAlign: 'center', marginTop: 64 }}>
+          <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary"
+             style={{ fontSize: 16, padding: '18px 44px', gap: 12 }}>
             <WhatsAppIcon />
-            Faça sua reserva no WhatsApp
+            Reservar meu Consultório
           </a>
           <p style={{
-            fontFamily: 'var(--font-body)',
-            fontSize: 13,
-            color: 'var(--gray)',
-            marginTop: 14,
-            fontWeight: 300,
+            fontFamily: 'var(--font-body)', fontSize: 13,
+            color: 'var(--navy-mute)', marginTop: 14, fontWeight: 400,
           }}>
             10% do faturamento até 01/05 · 15% após o prazo · Suporte humano das 8h às 20h
           </p>
@@ -109,7 +80,7 @@ export default function HowItWorks() {
 
       <style>{`
         @media (max-width: 768px) {
-          .steps-grid { grid-template-columns: 1fr !important; }
+          .steps-grid     { grid-template-columns: 1fr !important; }
           .connector-line { display: none !important; }
         }
       `}</style>
@@ -118,147 +89,118 @@ export default function HowItWorks() {
 }
 
 interface StepProps {
-  num:   string
-  title: string
-  badge: string
-  desc:  string
-  icon:  React.ReactNode
-  delay: number
+  num: string; badge: string; title: string; desc: string;
+  icon: React.ReactNode; delay: number
 }
 
-function StepCard({ num, title, badge, desc, icon, delay }: StepProps) {
+function StepCard({ num, badge, title, desc, icon, delay }: StepProps) {
   return (
     <div style={{
       position:     'relative',
       zIndex:       1,
-      padding:      '36px 28px',
-      background:   'var(--navy-mid)',
-      border:       'var(--border-card)',
+      padding:      '40px 28px 32px',
+      background:   'var(--cream)',
+      border:       '1px solid var(--beige-edge)',
       borderRadius: 'var(--radius)',
       display:      'flex',
-      flexDirection:'column',
-      gap:          20,
+      flexDirection: 'column',
+      gap:          16,
       textAlign:    'center',
       alignItems:   'center',
-      animation:    `fadeUp 0.8s ${delay}s ease both`,
+      animation:    `fadeUp 0.7s ${delay}s ease both`,
       animationFillMode: 'both',
-      transition:   'border-color 0.3s ease, box-shadow 0.3s ease',
+      transition:   'all 0.3s ease',
+      boxShadow:    'var(--shadow-sm)',
     }}
     onMouseEnter={e => {
       const el = e.currentTarget as HTMLDivElement
-      el.style.borderColor = 'rgba(255,107,26,0.4)'
-      el.style.boxShadow   = '0 8px 40px rgba(0,0,0,0.3)'
+      el.style.borderColor = 'var(--orange-line)'
+      el.style.boxShadow   = 'var(--shadow-md)'
+      el.style.transform   = 'translateY(-3px)'
     }}
     onMouseLeave={e => {
       const el = e.currentTarget as HTMLDivElement
-      el.style.borderColor = 'rgba(255,107,26,0.15)'
-      el.style.boxShadow   = 'none'
+      el.style.borderColor = 'var(--beige-edge)'
+      el.style.boxShadow   = 'var(--shadow-sm)'
+      el.style.transform   = 'translateY(0)'
     }}
     >
-      {/* step number */}
+      {/* step number badge */}
       <div style={{
-        position:   'absolute',
-        top:        -18,
-        left:       '50%',
-        transform:  'translateX(-50%)',
-        background: 'var(--orange)',
-        color:      'var(--navy)',
+        position: 'absolute', top: -16, left: '50%', transform: 'translateX(-50%)',
+        background: 'var(--orange)', color: 'var(--cream)',
         fontFamily: 'var(--font-display)',
-        fontSize:   14,
-        letterSpacing: '0.08em',
-        padding:    '4px 14px',
-        borderRadius: 100,
-        lineHeight: 1.4,
+        fontSize: 14, letterSpacing: '0.08em',
+        padding: '5px 16px', borderRadius: 100,
+        boxShadow: '0 6px 14px rgba(232,93,31,0.3)',
       }}>{num}</div>
 
-      {/* icon */}
       <div style={{
-        width:   64, height: 64,
-        borderRadius: '50%',
-        background:   'rgba(255,107,26,0.1)',
-        border:       '1px solid rgba(255,107,26,0.22)',
-        display:      'flex', alignItems: 'center', justifyContent: 'center',
-        color:        'var(--orange)',
-        marginTop:    8,
+        width: 64, height: 64, borderRadius: '50%',
+        background: 'var(--orange-soft)',
+        border: '1px solid var(--orange-line)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        color: 'var(--orange)', marginTop: 4,
       }}>{icon}</div>
 
       {/* time badge */}
       <div style={{
-        display:       'inline-flex',
-        alignItems:    'center',
-        gap:           6,
-        padding:       '5px 14px',
-        background:    'rgba(255,107,26,0.1)',
-        border:        '1px solid rgba(255,107,26,0.25)',
-        borderRadius:  100,
-        fontFamily:    'var(--font-heading)',
-        fontWeight:    700,
-        fontSize:      13,
-        letterSpacing: '0.1em',
-        color:         'var(--orange)',
+        display: 'inline-flex', alignItems: 'center', gap: 6,
+        padding: '5px 14px',
+        background: 'var(--navy)',
+        borderRadius: 100,
+        fontFamily: 'var(--font-heading)', fontWeight: 700,
+        fontSize: 12, letterSpacing: '0.1em',
+        color: 'var(--cream)',
       }}>
         <ClockIcon /> {badge}
       </div>
 
       <h3 style={{
-        fontFamily: 'var(--font-heading)',
-        fontWeight: 700,
+        fontFamily: 'var(--font-heading)', fontWeight: 700,
         fontSize:   'clamp(18px, 2vw, 22px)',
-        color:      'var(--beige)',
-        lineHeight: 1.2,
+        color:      'var(--navy)', lineHeight: 1.25,
       }}>{title}</h3>
 
       <p style={{
-        fontFamily: 'var(--font-body)',
-        fontWeight: 300,
-        fontSize:   14,
-        color:      'var(--gray)',
-        lineHeight: 1.7,
+        fontFamily: 'var(--font-body)', fontWeight: 400,
+        fontSize:   14, color: 'var(--navy-mid)', lineHeight: 1.65,
       }}>{desc}</p>
     </div>
   )
 }
 
-/* ── Step icons ── */
 function StepIcon1() {
   return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
-      stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-      <circle cx="12" cy="7" r="4"/>
-      <path d="M16 11l2 2 4-4" strokeWidth="2"/>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+      <polyline points="9 22 9 12 15 12 15 22"/>
     </svg>
   )
 }
-
 function StepIcon2() {
   return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
-      stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="4" width="18" height="18" rx="2"/>
+      <path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/>
     </svg>
   )
 }
-
 function StepIcon3() {
   return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
-      stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
     </svg>
   )
 }
-
 function ClockIcon() {
   return (
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="10"/>
       <polyline points="12 6 12 12 16 14"/>
     </svg>
   )
 }
-
 function WhatsAppIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
