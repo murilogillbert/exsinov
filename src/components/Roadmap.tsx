@@ -8,7 +8,7 @@ const PHASES = [
     items: [
       'Agenda online inteligente',
       'Prontuário eletrônico na nuvem',
-      'Mensagens unificadas (WhatsApp, Instagram, E-mail)',
+      'Mensagens unificadas (WhatsApp e E-mail)',
       'Financeiro simplificado',
       'Site profissional do consultório',
       'Pagamentos via Mercado Pago',
