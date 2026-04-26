@@ -153,7 +153,7 @@ export default function Hero() {
             animationFillMode: 'both',
           }}>
             {[
-              '10% até 01/05 · 15% após',
+              'Promoção: 10% fixo até 01/05',
               'Sem mensalidade fixa',
               'Setup em 240 min',
             ].map(b => (
@@ -318,7 +318,7 @@ function HeroCard() {
             fontFamily: 'var(--font-heading)', fontWeight: 600,
             fontSize: 10.5, letterSpacing: '0.22em',
             textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)',
-          }}>Faturamento de hoje</div>
+          }}>Resultado de hoje</div>
           <div style={{
             fontFamily: 'var(--font-display)',
             fontSize: 26, color: 'var(--cream)', lineHeight: 1, marginTop: 4,

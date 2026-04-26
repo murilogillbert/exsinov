@@ -1,12 +1,13 @@
 const WA_LINK = 'https://wa.me/5565996042431?text=Ol%C3%A1!%20Quero%20reservar%20a%20plataforma%20Exsinov%20para%20o%20meu%20consult%C3%B3rio.'
 
 const BULLETS = [
-  'Agenda online com lembretes automáticos via WhatsApp',
-  'Prontuário eletrônico na nuvem — seguro e acessível',
-  'Financeiro simplificado: lucro real do consultório em segundos',
-  'Comunicação centralizada com pacientes em todos os canais',
-  'Vitrine digital profissional para atrair novos pacientes',
-  'Pagamentos online via Mercado Pago já integrados',
+  'Vitrine digital do consultório — página profissional para atrair pacientes',
+  'Agenda online inteligente com lembretes automáticos via WhatsApp',
+  'Mensagens integradas: WhatsApp e E-mail (Gmail) em um só painel',
+  'Pagamentos integrados com Mercado Pago — online e conciliado automaticamente',
+  'Área do paciente: visualização de consultas agendadas e histórico',
+  'Área do profissional: agenda do dia e ganhos do mês em tempo real',
+  'Gestão financeira completa: custos, lucro real e exportação em CSV e PDF',
 ]
 
 export default function Product() {
@@ -145,7 +146,7 @@ function DashboardMockup() {
           {/* stat cards */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 10 }}>
             {[
-              { label: 'Receita',   value: 'R$ 18.4k', up: true,  pct: '+12%' },
+              { label: 'Resultado', value: 'R$ 18.4k', up: true,  pct: '+12%' },
               { label: 'Consultas', value: '142',      up: true,  pct: '+8%'  },
               { label: 'Faltas',    value: '3%',      up: false, pct: '-60%' },
             ].map((s, i) => (
@@ -185,7 +186,7 @@ function DashboardMockup() {
               fontFamily: 'var(--font-body)',
               fontSize: 10, color: 'rgba(255,255,255,0.5)',
               marginBottom: 10,
-            }}>Receita mensal — últimos 12 meses</div>
+            }}>Resultado mensal — últimos 12 meses</div>
             <div style={{ display: 'flex', alignItems: 'flex-end', gap: 5, height: 80 }}>
               {[45, 60, 50, 75, 65, 88, 72, 95, 80, 100, 88, 92].map((h, i) => (
                 <div key={i} style={{
@@ -216,7 +217,7 @@ function DashboardMockup() {
               fontFamily: 'var(--font-body)',
               fontSize: 12,
               color: 'rgba(255,255,255,0.7)',
-            }}>3 novas mensagens — WhatsApp, Instagram</span>
+            }}>3 novas mensagens — WhatsApp, E-mail</span>
           </div>
         </div>
       </div>

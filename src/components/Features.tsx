@@ -13,15 +13,22 @@ const FEATURES = [
   },
   {
     icon:  <OmniIcon />,
-    tag:   'Omnichannel Integrado',
-    title: 'WhatsApp, Instagram e E-mail num só painel',
-    desc:  'Centralize todas as conversas com pacientes em um único lugar. Nunca perca uma mensagem, automatize respostas e atenda mais rápido.',
+    tag:   'Mensagens Integradas',
+    title: 'WhatsApp e E-mail num só painel',
+    desc:  'Centralize WhatsApp e Gmail em um único lugar. Área do paciente para acompanhar consultas e área do profissional com agenda do dia e ganhos do mês.',
   },
   {
     icon:  <AnalyticsIcon />,
     tag:   'Análise Contábil e de Desempenho',
     title: 'Saiba o lucro real do seu consultório',
-    desc:  'Dashboards claros de receita, despesas e desempenho por especialidade. Tome decisões baseadas em dados — sem planilhas complicadas.',
+    desc:  'Cadastro de serviços e custos, cálculo automático de lucro real e métricas financeiras em tempo real. Exporte relatórios em CSV e PDF — sem planilhas.',
+  },
+  {
+    icon:  <PayIcon />,
+    tag:   'Pagamentos Integrados',
+    title: 'Mercado Pago direto na plataforma',
+    desc:  'Cobranças, recebimentos e conciliação financeira integrados ao Mercado Pago. O paciente paga online e o sistema registra tudo automaticamente.',
+    wide:  true,
   },
 ]
 
@@ -62,7 +69,7 @@ export default function Features() {
           gap: 24,
         }} className="features-grid">
           {FEATURES.map((f, i) => (
-            <FeatureCard key={i} {...f} delay={i * 0.08} />
+            <FeatureCard key={i} {...f} delay={i * 0.08} wide={f.wide} />
           ))}
         </div>
       </div>
@@ -82,9 +89,10 @@ interface CardProps {
   title: string
   desc:  string
   delay: number
+  wide?: boolean
 }
 
-function FeatureCard({ icon, tag, title, desc, delay }: CardProps) {
+function FeatureCard({ icon, tag, title, desc, delay, wide }: CardProps) {
   return (
     <div style={{
       padding:      36,
@@ -99,6 +107,7 @@ function FeatureCard({ icon, tag, title, desc, delay }: CardProps) {
       position:     'relative',
       overflow:     'hidden',
       boxShadow:    'var(--shadow-sm)',
+      gridColumn:   wide ? '1 / -1' : undefined,
     }}
     onMouseEnter={e => {
       const el = e.currentTarget as HTMLDivElement
@@ -157,3 +166,4 @@ function VitrinaIcon()   { return <svg {...ico}><rect x="3" y="3" width="18" hei
 function AgendaIcon()    { return <svg {...ico}><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg> }
 function OmniIcon()      { return <svg {...ico}><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h8M8 14h5"/></svg> }
 function AnalyticsIcon() { return <svg {...ico}><path d="M18 20V10M12 20V4M6 20v-6"/></svg> }
+function PayIcon()       { return <svg {...ico}><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg> }

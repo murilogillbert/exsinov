@@ -97,8 +97,8 @@ export default function CTASection() {
           Quem reservar o AIO até{' '}
           <strong style={{ color: 'var(--orange)', fontWeight: 600 }}>1º de maio</strong>{' '}
           paga apenas{' '}
-          <strong style={{ color: 'var(--cream)', fontWeight: 600 }}>10% do faturamento</strong>{' '}
-          gerado pela plataforma — para sempre. Após o prazo, o valor sobe para 15%.
+          <strong style={{ color: 'var(--cream)', fontWeight: 600 }}>10% sobre o resultado do consultório — para sempre</strong>.
+          {' '}No modelo padrão, são 10% nos primeiros 6 meses e 15% após.
           Sem mensalidade, sem cartão, sem boleto.
         </p>
 
@@ -148,7 +148,7 @@ export default function CTASection() {
         <div style={{
           display: 'flex', gap: 28, marginTop: 4, flexWrap: 'wrap', justifyContent: 'center',
         }}>
-          {['Sem mensalidade fixa', '10% até 01/05 · 15% após', 'Sem cartão ou boleto'].map(t => (
+          {['Sem mensalidade fixa', 'Promoção: 10% fixo para sempre até 01/05', 'Sem cartão ou boleto'].map(t => (
             <span key={t} style={{
               fontFamily: 'var(--font-heading)', fontWeight: 600,
               fontSize: 12, letterSpacing: '0.1em',
