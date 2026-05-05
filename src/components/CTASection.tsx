@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const TARGET = new Date('2026-05-02T00:00:00Z') // 1º maio 20h UTC-4
+const TARGET = new Date('2026-05-20T20:00:00-04:00') // 20 de maio 20h UTC-4
 const WA_LINK = 'https://wa.me/5565993504640?text=Ol%C3%A1!%20Quero%20reservar%20a%20plataforma%20Exsinov%20para%20o%20meu%20consult%C3%B3rio.'
 
 interface TimeLeft { days: number; hours: number; minutes: number; seconds: number }
@@ -95,7 +95,7 @@ export default function CTASection() {
           maxWidth: 580, lineHeight: 1.7,
         }}>
           Quem reservar o AIO até{' '}
-          <strong style={{ color: 'var(--orange)', fontWeight: 600 }}>1º de maio</strong>{' '}
+          <strong style={{ color: 'var(--orange)', fontWeight: 600 }}>20 de maio</strong>{' '}
           paga apenas{' '}
           <strong style={{ color: 'var(--cream)', fontWeight: 600 }}>10% sobre o resultado do consultório — para sempre</strong>.
           {' '}No modelo padrão, são 10% nos primeiros 6 meses e 15% após.
@@ -148,7 +148,7 @@ export default function CTASection() {
         <div style={{
           display: 'flex', gap: 28, marginTop: 4, flexWrap: 'wrap', justifyContent: 'center',
         }}>
-          {['Sem mensalidade fixa', 'Promoção: 10% fixo para sempre até 01/05', 'Sem cartão ou boleto'].map(t => (
+          {['Sem mensalidade fixa', 'Promoção: 10% fixo para sempre até 20/05', 'Sem cartão ou boleto'].map(t => (
             <span key={t} style={{
               fontFamily: 'var(--font-heading)', fontWeight: 600,
               fontSize: 12, letterSpacing: '0.1em',
@@ -168,7 +168,7 @@ export default function CTASection() {
         }}>
           Reservas encerram em{' '}
           <strong style={{ color: 'var(--orange)', fontWeight: 500 }}>
-            1º de maio às 20h
+            20 de maio às 20h
           </strong>
         </p>
       </div>

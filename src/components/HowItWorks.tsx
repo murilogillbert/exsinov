@@ -73,7 +73,7 @@ export default function HowItWorks() {
             fontFamily: 'var(--font-body)', fontSize: 13,
             color: 'var(--navy-mute)', marginTop: 14, fontWeight: 400,
           }}>
-            Promoção até 01/05: 10% fixo para sempre · Padrão: 10% por 6 meses, 15% após · Suporte das 8h às 20h
+            Promoção até 20/05: 10% fixo para sempre · Padrão: 10% por 6 meses, 15% após · Suporte das 8h às 20h
           </p>
         </div>
       </div>

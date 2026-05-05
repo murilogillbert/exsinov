@@ -153,7 +153,7 @@ export default function Hero() {
             animationFillMode: 'both',
           }}>
             {[
-              'Promoção: 10% fixo até 01/05',
+              'Promoção: 10% fixo até 20/05',
               'Sem mensalidade fixa',
               'Setup em 240 min',
             ].map(b => (
