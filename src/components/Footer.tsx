@@ -78,7 +78,7 @@ export default function Footer() {
             <div style={{ display: 'flex', gap: 10, marginTop: 4 }}>
               {[
                 { label: 'Instagram', icon: <InstagramIcon />, href: '#' },
-                { label: 'WhatsApp',  icon: <WhatsAppIcon />,  href: 'https://wa.me/5565996042431' },
+                { label: 'WhatsApp',  icon: <WhatsAppIcon />,  href: 'https://wa.me/5565993504640' },
                 { label: 'LinkedIn',  icon: <LinkedInIcon />,  href: '#' },
               ].map(s => (
                 <a key={s.label} href={s.href} aria-label={s.label} style={{
