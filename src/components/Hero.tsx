@@ -127,8 +127,8 @@ export default function Hero() {
           }}>
             <strong style={{ color: 'var(--navy)' }}>AIO</strong> é o software{' '}
             <strong style={{ color: 'var(--navy)' }}>all-in-one</strong> da Exsinov para
-            consultórios e clínicas: vitrine digital, agenda online, omnichannel integrado
-            e análise contábil — em uma única plataforma, simples e profissional.
+            consultórios e clínicas: vitrine digital, agenda online, recepção, mensagens,
+            prontuário, pagamentos e análise financeira em uma única plataforma.
           </p>
 
           {/* CTAs */}
@@ -153,9 +153,9 @@ export default function Hero() {
             animationFillMode: 'both',
           }}>
             {[
-              'Promoção: 10% fixo até 20/05',
-              'Sem mensalidade fixa',
-              'Setup em 240 min',
+              'Implantação guiada',
+              'Software completo',
+              'Suporte incluso',
             ].map(b => (
               <span key={b} style={{
                 display: 'inline-flex', alignItems: 'center', gap: 6,
@@ -192,6 +192,12 @@ export default function Hero() {
         @media (max-width: 900px) {
           section#hero > .container { grid-template-columns: 1fr !important; gap: 40px !important; }
           .hero-grid-right { display: none; }
+        }
+        @media (max-width: 520px) {
+          section#hero { min-height: auto !important; padding-top: 112px !important; }
+          section#hero > .container { padding-top: 28px !important; padding-bottom: 72px !important; }
+          section#hero h1 { font-size: 42px !important; line-height: 0.98 !important; }
+          section#hero p { max-width: 100% !important; font-size: 15px !important; }
         }
       `}</style>
     </section>
@@ -248,7 +254,7 @@ function HeroCard() {
             letterSpacing: '0.2em',
             color: 'var(--navy-mute)',
             textTransform: 'uppercase', marginTop: 6,
-          }}>Agenda do consultório</div>
+          }}>Dashboard administrativo</div>
         </div>
         <div style={{
           background: 'var(--orange-soft)',
@@ -257,16 +263,16 @@ function HeroCard() {
           fontSize: 12, letterSpacing: '0.12em',
           textTransform: 'uppercase',
           padding: '5px 11px', borderRadius: 6,
-        }}>8 consultas</div>
+        }}>Operação conectada</div>
       </div>
 
       {/* appointments list */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 18 }}>
         {[
-          { time: '09:00', name: 'Maria Silva',     type: 'Consulta',  active: true  },
-          { time: '10:30', name: 'João Pereira',    type: 'Retorno',   active: false },
-          { time: '13:00', name: 'Ana Costa',       type: 'Avaliação', active: false },
-          { time: '15:30', name: 'Carlos Lima',     type: 'Consulta',  active: false },
+          { time: '09:00', name: 'Agenda online',      type: 'Serviço, profissional e horário', active: true  },
+          { time: '10:30', name: 'Mensagens',          type: 'WhatsApp, Gmail e Instagram',      active: false },
+          { time: '13:00', name: 'Prontuário',         type: 'Evolução, anexos e auditoria',     active: false },
+          { time: '15:30', name: 'Financeiro',         type: 'Pagamentos, custos e lucro real',  active: false },
         ].map((a, i) => (
           <div key={i} style={{
             display: 'flex', alignItems: 'center', gap: 14,
@@ -318,11 +324,11 @@ function HeroCard() {
             fontFamily: 'var(--font-heading)', fontWeight: 600,
             fontSize: 10.5, letterSpacing: '0.22em',
             textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)',
-          }}>Resultado de hoje</div>
+          }}>Lucro líquido</div>
           <div style={{
             fontFamily: 'var(--font-display)',
             fontSize: 26, color: 'var(--cream)', lineHeight: 1, marginTop: 4,
-          }}>R$ 2.840,00</div>
+          }}>R$ 24,4k</div>
         </div>
         <div style={{
           width: 36, height: 36, borderRadius: '50%',

@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { group: 'Empresa', items: [
     { label: 'Como Funciona',     href: '#how' },
     { label: 'Roadmap',           href: '#roadmap' },
-    { label: 'Contato',           href: 'mailto:contato@exsinov.com.br' },
+    { label: 'Contato',           href: 'mailto:murilotaquesgillbert@exsinov.com.br' },
   ]},
   { group: 'Legal', items: [
     { label: 'Termos de Uso',     href: '#' },
@@ -71,8 +71,8 @@ export default function Footer() {
             }}>
               <strong style={{ color: 'var(--navy)' }}>AIO</strong> é o software all-in-one
               da <strong style={{ color: 'var(--navy)' }}>Exsinov</strong> para
-              consultórios e clínicas: vitrine digital, agenda online, omnichannel
-              integrado e análise contábil — em uma única plataforma.
+              consultórios e clínicas: vitrine digital, agenda, recepção, mensagens,
+              prontuário, pagamentos e análise financeira em uma única plataforma.
             </p>
 
             <div style={{ display: 'flex', gap: 10, marginTop: 4 }}>

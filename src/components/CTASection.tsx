@@ -1,40 +1,23 @@
-import { useState, useEffect } from 'react'
+const WA_LINK = 'https://wa.me/5565993504640?text=Ol%C3%A1!%20Quero%20conhecer%20o%20AIO%20All%20In%20One%20by%20Exsinov%20para%20o%20meu%20consult%C3%B3rio.'
 
-const TARGET = new Date('2026-05-20T20:00:00-04:00') // 20 de maio 20h UTC-4
-const WA_LINK = 'https://wa.me/5565993504640?text=Ol%C3%A1!%20Quero%20reservar%20a%20plataforma%20Exsinov%20para%20o%20meu%20consult%C3%B3rio.'
-
-interface TimeLeft { days: number; hours: number; minutes: number; seconds: number }
-
-function useCountdown(target: Date): TimeLeft {
-  const calc = (): TimeLeft => {
-    const diff = target.getTime() - Date.now()
-    if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 }
-    return {
-      days:    Math.floor(diff / 86_400_000),
-      hours:   Math.floor((diff / 3_600_000) % 24),
-      minutes: Math.floor((diff / 60_000) % 60),
-      seconds: Math.floor((diff / 1_000) % 60),
-    }
-  }
-  const [time, setTime] = useState<TimeLeft>(calc)
-  useEffect(() => {
-    const id = setInterval(() => setTime(calc()), 1000)
-    return () => clearInterval(id)
-  }, [])
-  return time
-}
-
-const pad = (n: number) => String(n).padStart(2, '0')
+const PLANS = [
+  {
+    title: 'Performance',
+    price: '10%',
+    suffix: 'do lucro líquido',
+    desc: 'A cobrança acompanha o resultado real da clínica. Ideal para consultórios que querem crescer com tecnologia e manter o custo alinhado ao lucro.',
+    items: ['Software completo', 'Implantação', 'Suporte', 'Acompanhamento financeiro'],
+  },
+  {
+    title: 'Mensalidade fixa',
+    price: 'R$ 1000',
+    suffix: 'por mês',
+    desc: 'Valor fixo mensal para usar o AIO completo com suporte incluso. Ideal para quem prefere previsibilidade de custo.',
+    items: ['Todos os módulos', 'Suporte da equipe', 'Custo previsível', 'Sem variação por resultado'],
+  },
+]
 
 export default function CTASection() {
-  const { days, hours, minutes, seconds } = useCountdown(TARGET)
-  const units = [
-    { val: pad(days),    label: 'dias'     },
-    { val: pad(hours),   label: 'horas'    },
-    { val: pad(minutes), label: 'minutos'  },
-    { val: pad(seconds), label: 'segundos' },
-  ]
-
   return (
     <section id="cta" style={{
       padding:    'clamp(80px, 10vw, 130px) 0',
@@ -42,7 +25,6 @@ export default function CTASection() {
       position:   'relative',
       overflow:   'hidden',
     }}>
-      {/* warm orange radial glow */}
       <div style={{
         position: 'absolute', inset: 0,
         background: `
@@ -52,7 +34,6 @@ export default function CTASection() {
         pointerEvents: 'none',
       }} />
 
-      {/* dotted overlay */}
       <div style={{
         position: 'absolute', inset: 0,
         backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)',
@@ -61,11 +42,11 @@ export default function CTASection() {
       }} />
 
       <div className="container" style={{
-        position: 'relative', zIndex: 1, textAlign: 'center',
-        display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 26,
+        position: 'relative', zIndex: 1,
+        display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 28,
       }}>
         <div className="section-eyebrow" style={{ justifyContent: 'center' }}>
-          Vagas limitadas
+          Modalidades comerciais
         </div>
 
         <h2 style={{
@@ -74,104 +55,135 @@ export default function CTASection() {
           lineHeight:    0.95,
           letterSpacing: '0.005em',
           color:         'var(--cream)',
+          textAlign:     'center',
         }}>
-          RESERVE O <span style={{ color: 'var(--orange)' }}>AIO</span><br />
-          DO SEU CONSULTÓRIO
+          LEVE O <span style={{ color: 'var(--orange)' }}>AIO</span><br />
+          PARA O SEU CONSULTÓRIO
         </h2>
-        <span style={{
-          fontFamily:    'var(--font-heading)',
-          fontWeight:    600,
-          fontSize:      11,
-          letterSpacing: '0.32em',
-          textTransform: 'uppercase',
-          color:         'rgba(255,255,255,0.45)',
-          marginTop:     -16,
-        }}>All In One · by Exsinov</span>
 
         <p style={{
           fontFamily: 'var(--font-body)', fontWeight: 400,
           fontSize: 'clamp(15px, 2vw, 18px)',
           color: 'rgba(255,255,255,0.78)',
-          maxWidth: 580, lineHeight: 1.7,
+          maxWidth: 680, lineHeight: 1.7,
+          textAlign: 'center',
         }}>
-          Quem reservar o AIO até{' '}
-          <strong style={{ color: 'var(--orange)', fontWeight: 600 }}>20 de maio</strong>{' '}
-          paga apenas{' '}
-          <strong style={{ color: 'var(--cream)', fontWeight: 600 }}>10% sobre o resultado do consultório — para sempre</strong>.
-          {' '}No modelo padrão, são 10% nos primeiros 6 meses e 15% após.
-          Sem mensalidade, sem cartão, sem boleto.
+          Escolha entre performance sobre lucro líquido ou mensalidade fixa.
+          Nas duas modalidades, a Exsinov implanta a plataforma, acompanha sua equipe
+          e entrega o software completo com suporte incluso.
         </p>
 
-        {/* COUNTDOWN */}
         <div style={{
-          display: 'flex', gap: 0, marginTop: 8,
-          border: '1px solid rgba(232,93,31,0.35)',
-          borderRadius: 12, overflow: 'hidden',
-          background: 'rgba(0,0,0,0.25)',
-          backdropFilter: 'blur(8px)',
-        }}>
-          {units.map((item, i) => (
-            <div key={item.label} style={{ display: 'flex', alignItems: 'center' }}>
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+          gap: 22,
+          width: '100%',
+          marginTop: 10,
+        }} className="plans-grid">
+          {PLANS.map(plan => (
+            <div key={plan.title} style={{
+              background: 'rgba(255,255,255,0.06)',
+              border: '1px solid rgba(232,93,31,0.30)',
+              borderRadius: 'var(--radius)',
+              padding: '30px 28px',
+              color: 'var(--cream)',
+              boxShadow: '0 24px 70px rgba(0,0,0,0.18)',
+            }}>
+              <span style={{
+                display: 'inline-flex',
+                padding: '5px 12px',
+                borderRadius: 100,
+                background: 'rgba(232,93,31,0.18)',
+                color: 'var(--orange)',
+                fontFamily: 'var(--font-heading)',
+                fontWeight: 700,
+                fontSize: 11,
+                letterSpacing: '0.22em',
+                textTransform: 'uppercase',
+              }}>{plan.title}</span>
+
               <div style={{
-                padding: 'clamp(14px,2vw,20px) clamp(18px,3vw,32px)',
-                textAlign: 'center',
-                borderRight: i < units.length - 1 ? '1px solid rgba(232,93,31,0.2)' : 'none',
-                minWidth: 'clamp(64px, 9vw, 96px)',
+                display: 'flex',
+                alignItems: 'baseline',
+                gap: 10,
+                marginTop: 18,
+                marginBottom: 12,
               }}>
-                <div style={{
-                  fontFamily:    'var(--font-display)',
-                  fontSize:      'clamp(32px, 5vw, 60px)',
-                  lineHeight:    1,
-                  color:         'var(--orange)',
-                  letterSpacing: '0.04em',
-                  textShadow:    '0 0 30px rgba(232,93,31,0.55)',
-                }}>{item.val}</div>
-                <div style={{
-                  fontFamily: 'var(--font-heading)', fontWeight: 600,
-                  fontSize: 10, letterSpacing: '0.28em',
+                <strong style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 'clamp(48px, 6vw, 76px)',
+                  lineHeight: 1,
+                  fontWeight: 400,
+                  color: 'var(--cream)',
+                }}>{plan.price}</strong>
+                <span style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: 18,
+                  color: 'rgba(255,255,255,0.62)',
                   textTransform: 'uppercase',
-                  color: 'rgba(255,255,255,0.5)',
-                  marginTop: 4,
-                }}>{item.label}</div>
+                  letterSpacing: '0.08em',
+                }}>{plan.suffix}</span>
               </div>
+
+              <p style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: 14.5,
+                lineHeight: 1.65,
+                color: 'rgba(255,255,255,0.72)',
+                minHeight: 92,
+              }}>{plan.desc}</p>
+
+              <ul style={{
+                listStyle: 'none',
+                display: 'grid',
+                gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+                gap: 10,
+                marginTop: 20,
+              }}>
+                {plan.items.map(item => (
+                  <li key={item} style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 8,
+                    fontFamily: 'var(--font-heading)',
+                    fontWeight: 700,
+                    fontSize: 13,
+                    color: 'rgba(255,255,255,0.72)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
+                  }}>
+                    <span style={{ color: 'var(--orange)' }}>✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
 
         <a href={WA_LINK} target="_blank" rel="noopener noreferrer"
            className="btn-primary"
-           style={{ fontSize: 16, padding: '20px 48px', marginTop: 8, gap: 12 }}>
+           style={{ fontSize: 16, padding: '20px 48px', marginTop: 10, gap: 12 }}>
           <WhatsAppIcon />
-          Reservar meu Consultório
+          Reservar apresentação do AIO
         </a>
 
-        <div style={{
-          display: 'flex', gap: 28, marginTop: 4, flexWrap: 'wrap', justifyContent: 'center',
-        }}>
-          {['Sem mensalidade fixa', 'Promoção: 10% fixo para sempre até 20/05', 'Sem cartão ou boleto'].map(t => (
-            <span key={t} style={{
-              fontFamily: 'var(--font-heading)', fontWeight: 600,
-              fontSize: 12, letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.65)',
-              display: 'flex', alignItems: 'center', gap: 7,
-            }}>
-              <span style={{ color: 'var(--orange)', fontSize: 15 }}>✓</span>
-              {t}
-            </span>
-          ))}
-        </div>
-
         <p style={{
-          fontFamily: 'var(--font-body)', fontSize: 13,
-          color: 'rgba(255,255,255,0.45)', fontWeight: 400, marginTop: 4,
+          fontFamily: 'var(--font-body)',
+          fontSize: 13,
+          color: 'rgba(255,255,255,0.45)',
+          fontWeight: 400,
+          textAlign: 'center',
         }}>
-          Reservas encerram em{' '}
-          <strong style={{ color: 'var(--orange)', fontWeight: 500 }}>
-            20 de maio às 20h
-          </strong>
+          Contatos comerciais: WhatsApp (65) 99350-4640 · murilotaquesgillbert@exsinov.com.br
         </p>
       </div>
+
+      <style>{`
+        @media (max-width: 820px) {
+          .plans-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </section>
   )
 }

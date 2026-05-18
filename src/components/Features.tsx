@@ -2,32 +2,38 @@ const FEATURES = [
   {
     icon:  <VitrinaIcon />,
     tag:   'Vitrine Digital',
-    title: 'Apresente seu consultório com elegância',
-    desc:  'Página profissional e personalizável para mostrar seus serviços, especialidades e diferenciais. Otimizada para conversão e busca local.',
+    title: 'Vitrine pronta para atrair pacientes',
+    desc:  'Página pública com serviços, profissionais, identidade visual, banners, contatos, privacidade e termos para transformar o consultório em uma presença digital organizada.',
   },
   {
     icon:  <AgendaIcon />,
-    tag:   'Agenda Online Inteligente',
-    title: 'Zero faltas, zero ligações',
-    desc:  'Pacientes marcam consultas pelo seu site. Lembretes automáticos via WhatsApp reduzem faltas em até 60% e liberam sua recepção.',
+    tag:   'Agenda e Recepção',
+    title: 'Agendamento e rotina da recepção no mesmo lugar',
+    desc:  'Paciente escolhe serviço, profissional, data e horário. A recepção acompanha status, avisos, check-in, histórico e fechamento do fluxo.',
   },
   {
     icon:  <OmniIcon />,
-    tag:   'Mensagens Integradas',
-    title: 'WhatsApp e E-mail num só painel',
-    desc:  'Centralize WhatsApp e Gmail em um único lugar. Área do paciente para acompanhar consultas e área do profissional com agenda do dia e ganhos do mês.',
+    tag:   'Comunicação Omnichannel',
+    title: 'WhatsApp, Gmail, Instagram e portal em contexto',
+    desc:  'A equipe não precisa alternar entre canais. Conversas, templates, mensagens internas e histórico por paciente ficam centralizados no AIO.',
+  },
+  {
+    icon:  <PatientIcon />,
+    tag:   'Portal do Paciente',
+    title: 'O paciente acompanha tudo sem ligar',
+    desc:  'Área própria para cadastro, consultas, histórico, chat, cancelamento e avaliação, reduzindo ligações repetitivas para a recepção.',
   },
   {
     icon:  <AnalyticsIcon />,
-    tag:   'Análise Contábil e de Desempenho',
-    title: 'Saiba o lucro real do seu consultório',
-    desc:  'Cadastro de serviços e custos, cálculo automático de lucro real e métricas financeiras em tempo real. Exporte relatórios em CSV e PDF — sem planilhas.',
+    tag:   'Prontuário e Profissional',
+    title: 'Agenda, evolução e prontuário em nuvem',
+    desc:  'Profissionais acessam histórico clínico, evolução, sessões, anexos, auditoria, avisos da recepção e visão financeira com segurança operacional.',
   },
   {
     icon:  <PayIcon />,
-    tag:   'Pagamentos Integrados',
-    title: 'Mercado Pago direto na plataforma',
-    desc:  'Cobranças, recebimentos e conciliação financeira integrados ao Mercado Pago. O paciente paga online e o sistema registra tudo automaticamente.',
+    tag:   'Financeiro e Resultado',
+    title: 'Agenda, pagamentos e custos mostram o lucro real',
+    desc:  'Serviços, preços, Mercado Pago, custos, faturamento, métricas e exportações conectados para apoiar decisões com dados reais.',
     wide:  true,
   },
 ]
@@ -165,5 +171,6 @@ const ico = { width: 26, height: 26, viewBox: '0 0 24 24', fill: 'none', stroke:
 function VitrinaIcon()   { return <svg {...ico}><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> }
 function AgendaIcon()    { return <svg {...ico}><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg> }
 function OmniIcon()      { return <svg {...ico}><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h8M8 14h5"/></svg> }
+function PatientIcon()   { return <svg {...ico}><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M17 11l2 2 4-4"/></svg> }
 function AnalyticsIcon() { return <svg {...ico}><path d="M18 20V10M12 20V4M6 20v-6"/></svg> }
 function PayIcon()       { return <svg {...ico}><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg> }

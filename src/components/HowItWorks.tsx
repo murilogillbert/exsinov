@@ -5,21 +5,21 @@ const STEPS = [
     num:   '01',
     badge: '240 min',
     title: 'Implantação do AIO',
-    desc:  'Nossa equipe configura toda a sua plataforma AIO — vitrine, integrações e infraestrutura. Você não precisa fazer nada técnico, entregamos tudo pronto em 4 horas.',
+    desc:  'A Exsinov entrega ambiente, vitrine, módulos e integrações principais para a clínica começar com estrutura técnica pronta.',
     icon:  <StepIcon1 />,
   },
   {
     num:   '02',
     badge: '60 min',
     title: 'Configuração do consultório',
-    desc:  'Em uma sessão guiada de 1 hora, inserimos seus serviços, especialidades, equipe e preços no AIO. Pronto para receber pacientes no mesmo dia.',
+    desc:  'Sessão guiada para serviços, equipe, preços, especialidades, identidade visual e canais comerciais do consultório.',
     icon:  <StepIcon2 />,
   },
   {
     num:   '03',
     badge: 'Contínuo',
-    title: 'Cresça com dados reais',
-    desc:  'Acompanhe os relatórios do AIO sobre o desempenho e contabilidade do consultório. Tome decisões estratégicas e escale com confiança.',
+    title: 'Suporte e evolução',
+    desc:  'Acompanhamento da equipe, ajustes operacionais e evolução com dados reais para melhorar a rotina e a gestão.',
     icon:  <StepIcon3 />,
   },
 ]
@@ -73,7 +73,7 @@ export default function HowItWorks() {
             fontFamily: 'var(--font-body)', fontSize: 13,
             color: 'var(--navy-mute)', marginTop: 14, fontWeight: 400,
           }}>
-            Promoção até 20/05: 10% fixo para sempre · Padrão: 10% por 6 meses, 15% após · Suporte das 8h às 20h
+            Modalidades: 10% do lucro líquido ou mensalidade fixa · Software completo, implantação e suporte inclusos
           </p>
         </div>
       </div>

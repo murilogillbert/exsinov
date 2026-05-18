@@ -248,3 +248,25 @@ img { max-width: 100%; display: block; }
 @media (max-width: 768px) {
   .container { padding: 0 24px; }
 }
+
+@media (max-width: 520px) {
+  .container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  p, span, li, h1, h2, h3 {
+    overflow-wrap: anywhere;
+  }
+
+  .btn-primary,
+  .btn-ghost,
+  .btn-navy {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

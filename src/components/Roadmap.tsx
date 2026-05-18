@@ -79,8 +79,8 @@ export default function Roadmap() {
             <span className="accent">AIO</span> NO SEU CONSULTÓRIO
           </h2>
           <p className="section-subtitle" style={{ margin: '0 auto', textAlign: 'center' }}>
-            A cada trimestre, novas camadas de inteligência são liberadas no AIO para
-            os consultórios que já estão na plataforma.
+            A evolução do AIO acompanha a maturidade do consultório: da operação
+            completa à inteligência contábil, mobile, fiscal e IA de crescimento.
           </p>
         </div>
 
@@ -107,11 +107,11 @@ export default function Roadmap() {
           fontFamily: 'var(--font-body)', fontWeight: 400,
           fontSize: 14, color: 'var(--navy-mute)',
         }}>
-          Quem reservar agora{' '}
+          O produto evolui junto com os consultórios: {' '}
           <strong style={{ color: 'var(--orange)', fontWeight: 600 }}>
-            participa ativamente da evolução do produto
+            dados operacionais e financeiros conectados
           </strong>{' '}
-          e mantém o preço de 10% para sempre.
+          para apoiar decisões com mais clareza.
         </p>
       </div>
 

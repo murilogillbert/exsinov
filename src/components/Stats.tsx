@@ -1,8 +1,8 @@
 const STATS = [
-  { value: '60%',    label: 'menos faltas com lembretes automáticos via WhatsApp' },
-  { value: '99%',    label: 'de uptime garantido na plataforma'                   },
-  { value: '240min', label: 'de implantação do AIO no consultório'                },
-  { value: '60min',  label: 'de configuração das suas informações no AIO'         },
+  { value: '7',      label: 'áreas conectadas: vitrine, agenda, recepção, mensagens, prontuário, pagamentos e financeiro' },
+  { value: '240min', label: 'para implantação guiada da plataforma, módulos e integrações principais'                    },
+  { value: '60min',  label: 'para configurar serviços, equipe, preços, identidade visual e canais'                       },
+  { value: '2',      label: 'modalidades comerciais: performance sobre lucro líquido ou mensalidade fixa'                },
 ]
 
 export default function Stats() {

@@ -1,13 +1,13 @@
 const WA_LINK = 'https://wa.me/5565993504640?text=Ol%C3%A1!%20Quero%20reservar%20a%20plataforma%20Exsinov%20para%20o%20meu%20consult%C3%B3rio.'
 
 const BULLETS = [
-  'Vitrine digital do consultório — página profissional para atrair pacientes',
-  'Agenda online inteligente com lembretes automáticos via WhatsApp',
-  'Mensagens integradas: WhatsApp e E-mail (Gmail) em um só painel',
-  'Pagamentos integrados com Mercado Pago — online e conciliado automaticamente',
-  'Área do paciente: visualização de consultas agendadas e histórico',
-  'Área do profissional: agenda do dia e ganhos do mês em tempo real',
-  'Gestão financeira completa: custos, lucro real e exportação em CSV e PDF',
+  'Vitrine digital com página pública, serviços, profissionais, identidade e contatos',
+  'Agenda online e recepção com status, check-in, histórico e informações operacionais',
+  'Atendimento com paciente, profissional, prontuário, evolução, anexos e auditoria',
+  'Mensagens centralizadas: WhatsApp Cloud, Gmail, Instagram Direct, SMTP e portal',
+  'Portal do paciente com login, consultas, histórico, chat, cancelamento e avaliação',
+  'Financeiro com Mercado Pago, custos, faturamento, lucro real, métricas e exportações',
+  'Segurança com perfis, autenticação, rotas por função, privacidade, LGPD e suporte',
 ]
 
 export default function Product() {
@@ -43,8 +43,8 @@ export default function Product() {
             <p className="section-subtitle" style={{ marginBottom: 32 }}>
               <strong style={{ color: 'var(--navy)' }}>AIO</strong> é o software all-in-one
               da <strong style={{ color: 'var(--navy)' }}>Exsinov</strong> para consultórios
-              e clínicas. Vitrine digital, agenda, omnichannel, financeiro e análise
-              contábil — em um único lugar, simples e profissional.
+              e clínicas. Presença digital, agendamento, atendimento, comunicação,
+              prontuário, pagamentos e indicadores em uma única plataforma.
             </p>
 
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -76,7 +76,7 @@ export default function Product() {
                 <WaIcon />
                 Reservar no WhatsApp
               </a>
-              <a href="#how" className="btn-ghost">Como Funciona</a>
+            <a href="#how" className="btn-ghost">Implantação</a>
             </div>
           </div>
 
